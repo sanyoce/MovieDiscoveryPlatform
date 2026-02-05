@@ -1,0 +1,47 @@
+a{
+    color: white;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    background-color: grey;
+    align-items: center;
+}
+
+/* .navLogo{
+    margin-right: px;
+} */
+
+.linkWrap{
+    width: 98px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1A1A1A;
+    border-radius: 8px;
+}
+
+.headerLinks{
+    display: flex;
+    gap: 30px;
+    background-color: #0F0F0F;
+    border: 4px;
+    border-radius: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+.navButtons{
+    display: flex;
+    gap: 34px;
+}
