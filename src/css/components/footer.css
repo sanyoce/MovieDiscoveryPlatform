@@ -1,0 +1,51 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    background-color: black;
+}
+
+.footerGlobal{
+        padding: 100px 162px 50px 162px;
+}
+
+.containerFooterLinks{
+    display: flex;
+    gap: 30px;
+}
+
+.footerLinks{
+    display: flex;
+    flex-direction: column;
+    padding-right: 100px;
+    gap: 14px;
+    white-space: nowrap;
+}
+
+.footerLinks h2{
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+}
+
+.footerLinks a{
+    color: #999999;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+.footerContact{
+    display: flex;
+    flex-direction: column;
+}
+
+.footerIcons{
+    display: flex;
+}
+
+.footerPolicy{
+    display: flex;
+    justify-content: space-between;
+}
