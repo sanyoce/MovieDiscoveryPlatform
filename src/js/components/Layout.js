@@ -9,7 +9,7 @@ export function layout(){
 
     const footer = document.createElement('footer')
     footer.innerHTML = `
-    <div class='footerGlobal'>
+
         <div class='containerFooterLinks'>
 
             <div class='footerLinks'>
@@ -69,7 +69,7 @@ export function layout(){
                 <p>@2023 streamvib, All Rights Reserved</p>
             </div>
 
-            <div>
+            <div class = 'footerPolicyTerms'>
                 <a>Terms of Use</a>
                 <a>Privacy Policy</a>
                 <a>Cookie Policy</a>
@@ -77,7 +77,6 @@ export function layout(){
 
         </div>
 
-    </div>
     `;
     
     root.append(Header(),main,footer)

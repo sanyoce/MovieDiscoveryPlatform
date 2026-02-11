@@ -2,6 +2,14 @@ body{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    background-color: #141414;
+}
+
+#root{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 a{

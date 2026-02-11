@@ -28,3 +28,17 @@ export function Header(){
     `;
     return header
 }   
+
+document.addEventListener('DOMContentLoaded', () => {
+    const clickOnNav = document.querySelectorAll('.navLinks')
+
+    clickOnNav.forEach((link) => {
+        link.addEventListener('click', () => {
+            clickOnNav.forEach((item) => {
+                item.classList.remove('headerLinksClick')
+            })
+
+            link.classList.add('headerLinksClick')
+        })
+    })
+});

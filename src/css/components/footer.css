@@ -3,21 +3,19 @@ footer{
     flex-direction: column;
     gap: 100px;
     background-color: black;
-}
-
-.footerGlobal{
-        padding: 100px 162px 50px 162px;
+    padding: 100px 162px 50px 162px;
 }
 
 .containerFooterLinks{
-    display: flex;
-    gap: 30px;
+    display: grid;
+    /* gap: 30px; */
+    grid-template-columns: repeat(6 , 1fr);
 }
 
 .footerLinks{
     display: flex;
     flex-direction: column;
-    padding-right: 100px;
+    justify-content: flex-start;
     gap: 14px;
     white-space: nowrap;
 }
@@ -42,10 +40,52 @@ footer{
 }
 
 .footerIcons{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .footerPolicy{
     display: flex;
     justify-content: space-between;
+}
+
+.footerPolicyTerms{
+    display: flex;
+    gap: 10px;
+    height: 20px;
+}
+
+.footerPolicyTerms a:nth-child(2){
+    padding: 0px 10px 0px 10px;
+    border-right: 1px solid #1A1A1A;
+    border-left: 1px solid #1A1A1A;
+}
+
+
+@media(max-width:1440px){
+    /*  */
+}
+
+@media(max-width:390px){
+
+    footer{
+        padding: 0;
+        width: 100%;
+        padding: 0px 16px 0px 16px;
+    }
+    
+    .containerFooterLinks{
+        grid-template-columns: repeat(2, 4fr);
+        row-gap: 30px;   
+    }
+
+    .footerPolicy{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footerPolicy div:nth-child(1){
+    border-top: 1px solid #1A1A1A
+    }
 }

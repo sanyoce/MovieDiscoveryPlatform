@@ -6,7 +6,6 @@
 header{
     display: flex;
     justify-content: space-around;
-    background-color: var(--color-gray-60);
     align-items: center;
     padding-top: 22px;
     padding-bottom: 22px;
@@ -17,20 +16,24 @@ header{
     gap: var(--font-size-xl); 
     background-color: black;
     padding: 10px;
-    border: 3px;
-    border-color: white;
+    border: 6px solid #1A1A1A;
     border-radius: 10px;
 }
 
-.headerLinks a{
+.navLinks{
     padding: 12px 20px;
-    /* background-color:; */
     color: white;
 }
 
 .navButtons{
     display: flex;
     gap: 34px;
+}
+
+.navLinks.headerLinksClick {
+    background-color: #1A1A1A;
+    border: 1px solid #1A1A1A;
+    border-radius: 10px;
 }
 
 
