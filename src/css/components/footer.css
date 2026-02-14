@@ -4,11 +4,11 @@ footer{
     gap: 100px;
     background-color: black;
     padding: 100px 162px 50px 162px;
+    position: relative;
 }
 
 .containerFooterLinks{
     display: grid;
-    /* gap: 30px; */
     grid-template-columns: repeat(6 , 1fr);
 }
 

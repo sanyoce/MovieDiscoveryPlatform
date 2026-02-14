@@ -1,0 +1,79 @@
+.homePage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 75px;
+}
+
+.homePage div:nth-child(1){
+    padding-bottom: 40px;
+}
+
+.homeAboutPhone{
+    display: none;
+}
+
+.homeAbout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.homeAbout h1{
+    color: white;
+    font-weight: 700;
+    font-size: 58px;
+    line-height: 150%;
+    margin: 0;
+}
+
+.homeAboutTxt{
+    max-width: 1094px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+}
+
+.homeAboutBtn{
+    display: flex;
+    gap: 4px;
+    background-color: red;
+    border-radius: 8px;
+    padding:0px 10px 0px 10px;
+}
+
+@media(max-width:1440px){
+    /*  */
+}
+
+@media(max-width:390px){
+
+    .homePage{
+        padding-left: 20px;
+    }
+
+    .homePage div:nth-child(1) img{
+        width: 200px;
+        height: 200px;
+    }
+
+    .homeAbout h1{
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .homeAboutTxt{
+        display: none;
+    }
+
+    .homeAboutPhone{
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: 0;
+    }
+}
