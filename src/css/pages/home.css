@@ -1,12 +1,14 @@
 .homePage{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     padding-top: 75px;
 }
 
-.homePage div:nth-child(1){
-    padding-bottom: 40px;
+.homeImg{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;;
 }
 
 .homeAboutPhone{
@@ -82,13 +84,13 @@
 .genresPage{
     display: flex;
     gap: 30px;
-    padding-top: 200px;
-    
+    padding-top: 100px;
+    justify-content: center;
 }
 
 .genreBlock{
     background-color: #1A1A1A;
-    padding: 30px 30px 0px 30px;
+    padding: 30px 30px 10px 30px;
     border-radius: 12px;
 }
 
@@ -108,14 +110,15 @@
 .genreTxt{
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
+    padding-top: 70px;
     color: white;
 }
 
 @media(max-width:390px){
     .genresPage{
         display: grid;
-        grid-template-columns: 2fr 2fr;
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: repeat(2, auto);
     }
 
     .genreBlock{
@@ -126,7 +129,6 @@
 
     .posters{
         display: grid;
-        grid-template-columns: 2fr 2fr;
         gap: 2px;
     }   
 
@@ -145,5 +147,116 @@
     .genreTxt img{
         width: 20px;
         height: 20px;
+    }
+}
+
+
+.deviceSectionBlock{
+    padding: 150px 162px 150px 161px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.deviceSectionInfo h2{
+    font-size: 38px;
+    color: white;
+    font-weight: 700;
+    line-height: 150%;
+}
+
+.deviceSectionInfo p{
+    color: #999999;
+    font-size: 18px;
+}
+
+.deviceSectionCard{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    background-color: #0F0F0F;
+    gap: 30px;
+    border-radius: 12px;
+}
+
+.deviceSectionCards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto); 
+    gap: 30px;
+}
+
+.deviceSectionCard div:nth-child(1){
+    display: flex;
+    gap: 30px;
+    color: white;
+    align-items: center;
+}
+
+.deviceSectionCard div:nth-child(1) img{
+    background-color: #141414;
+    width: 40px;
+    height: 40px;
+}
+
+.deviceIcons{
+    width: 72px;
+    height: 72px;
+    background-color: #141414;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deviceHiddenFnfo{
+    display: none;
+}
+
+@media(max-width:390px){
+
+    .deviceSectionInfo h2{
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    line-height: 150%;
+    }
+
+    .deviceNotHiddenInfo{
+        display: none;
+    }
+
+    .deviceHiddenInfo{
+        display: block;
+    }
+
+    .deviceSectionBlock{
+    padding: 0;
+    gap: 64px;
+    padding-top: 100px;
+    }
+
+    .deviceSectionCards{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .deviceSectionCard{
+    padding: 24px;
+    gap: 10px;
+    border-radius: 12px;
+    }
+
+    .deviceSectionCard div:nth-child(1) img{
+    width: 24px;
+    height: 24px;
+    }
+
+    .deviceIcons{
+    width: 44px;
+    height: 44px;
+    background-color: #141414;
+    border-radius: 8px;
+
     }
 }
