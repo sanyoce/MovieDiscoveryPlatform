@@ -1,4 +1,3 @@
-// import { layout } from './components/Layout.js';
 import {homePage} from './pages/HomePage.js';
 import {searchPage} from './pages/SearchPage.js';
 import {favoritePage} from './pages/FavoritesPage.js';
@@ -11,7 +10,7 @@ const routes = {
     '#/details': detailPage,
 }
 
-function renderRout(){
+async function renderRout(){
     const main = document.getElementById('main');
     const hash = window.location.hash || '#/home';
 
@@ -19,12 +18,12 @@ function renderRout(){
 
     const renderPage = routes[hash];
 
-    main.append(renderPage());
+    main.append(await renderPage());
 }
 
 export function initRout(){
     window.addEventListener('hashchange', renderRout);
-    window.addEventListener('load', renderRout);
+    // window.addEventListener('load', renderRout);
 
     renderRout()
 }

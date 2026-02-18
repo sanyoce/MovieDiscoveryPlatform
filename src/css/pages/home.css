@@ -77,3 +77,73 @@
         letter-spacing: 0;
     }
 }
+
+
+.genresPage{
+    display: flex;
+    gap: 30px;
+    padding-top: 200px;
+    
+}
+
+.genreBlock{
+    background-color: #1A1A1A;
+    padding: 30px 30px 0px 30px;
+    border-radius: 12px;
+}
+
+.posters{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 10px;
+    height: 200px;
+}
+
+.posters img{
+    width: 115px;
+    height: 123px;
+    border-radius: 10px;
+}
+
+.genreTxt{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    color: white;
+}
+
+@media(max-width:390px){
+    .genresPage{
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+    }
+
+    .genreBlock{
+        background-color: #1A1A1A;
+        padding: 10px 10px 0px 10px;
+        border-radius: 12px;
+    }
+
+    .posters{
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        gap: 2px;
+    }   
+
+    .posters img{
+        aspect-ratio: 1 / 1;
+        border-radius: 10px;
+    }
+
+    .genreTxt{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    color: white;
+    }
+
+    .genreTxt img{
+        width: 20px;
+        height: 20px;
+    }
+}
