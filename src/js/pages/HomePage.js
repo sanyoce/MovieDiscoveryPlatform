@@ -1,4 +1,3 @@
-console.count('homePage called');
 import { getGenres, getPoster } from "../api/tmdb.js";
 
 export async function homePage(){
@@ -153,10 +152,164 @@ deviceSection.innerHTML = `
     </div>
 `
 
+const homeQuestion = document.createElement('div')
+homeQuestion.classList.add('homeQuestionBlock')
+homeQuestion.innerHTML = `
+
+    <div class = 'homeQuestionHeader'>
+
+        <div class = 'homeQuestionHeaderInfo'>
+            <h1>Frequently Asked Questions</h1>
+            <p>Got questions? We've got answers! Check out our FAQ section to find answers to the most common questions about StreamVibe.</p>
+        </div>
+           
+        <div class = 'homeQuestionHeaderBtn'>
+            <a>Ask a Question</a>
+        </div>
+
+    </div>
+    
+    <div class = 'homeQuestions'>
+
+        <div class = 'homeQuestion'>
+            <div class = 'homeQuestionNumber'><p>01</p></div>
+
+            <div class = 'homeQuestionTxt'>
+                <p>What is StreamVibe?</p>
+                <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
+            </div>
+
+            <div class = 'homeQuestionTxtBtn'>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class = 'homeQuestion'>
+            <div class = 'homeQuestionNumber'><p>02</p></div>
+
+            <div class = 'homeQuestionTxt'>
+                <p>How much does StreamVibe cost?</p>
+                <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
+            </div>
+
+            <div class = 'homeQuestionTxtBtn '>
+                <span></span><span></span>
+            </div>
+        </div>
+
+        <div class = 'homeQuestion'>
+            <div class = 'homeQuestionNumber'><p>03</p></div>
+
+            <div class = 'homeQuestionTxt'>
+                <p>What content is available on StreamVibe?</p>
+                <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
+            </div>
+
+            <div class = 'homeQuestionTxtBtn '>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class = 'homeQuestion'>
+            <div class = 'homeQuestionNumber'><p>04</p></div>
+
+            <div class = 'homeQuestionTxt'>
+                <p>How can I watch StreamVibe?</p>
+                <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
+            </div>
+
+            <div class = 'homeQuestionTxtBtn'>
+                <span></span><span></span>
+            </div>
+        </div>
+
+        <div class = 'homeQuestion'>
+            <div class = 'homeQuestionNumber'><p>05</p></div>
+
+            <div class = 'homeQuestionTxt'>
+                <p>How do I sign up for StreamVibe?</p>
+                <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
+            </div>
+
+            <div class = 'homeQuestionTxtBtn '>
+                <span></span><span></span>
+            </div>
+        </div>
+
+        <div class = 'homeQuestion'>
+            <div class = 'homeQuestionNumber'><p>06</p></div>
+
+            <div class = 'homeQuestionTxt'>
+                <p>What is the StreamVibe free trial?</p>
+                <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
+            </div>
+
+            <div class = 'homeQuestionTxtBtn'>
+                <span></span><span></span>
+            </div>
+        </div>
+
+        <div class = 'homeQuestion'>
+            <div class = 'homeQuestionNumber'><p>07</p></div>
+
+            <div class = 'homeQuestionTxt'>
+                <p>How do I contact StreamVibe customer support?</p>
+                <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
+            </div>
+
+            <div class = 'homeQuestionTxtBtn'>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class = 'homeQuestion'>
+            <div class = 'homeQuestionNumber'><p>08</p></div>
+
+            <div class = 'homeQuestionTxt'>
+                <p>What are the StreamVibe payment methods?</p>
+                <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
+            </div>
+
+            <div class = 'homeQuestionTxtBtn'>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+    </div>
+`
+
 div.append(genresSectionPage)
 div.append(deviceSection)
+div.append(homeQuestion)
+
+
+    const homeQuestionsOpen = homeQuestion.querySelectorAll('.homeQuestionTxtBtn')
+    const homeTxtHidden = homeQuestion.querySelectorAll('.homeQuestionTxtHidden')
+    homeQuestionsOpen.forEach((btn) =>{
+        btn.addEventListener('click', () =>{
+            btn.classList.toggle('open');
+            homeTxtHidden.toggle('open')
+        })
+    })
+
+    homeQuestionsOpen.forEach((btn) => {
+    btn.addEventListener('click', () => {
+    const question = btn.closest('.homeQuestion');
+    const hiddenText = question.querySelector('.homeQuestionTxtHidden');
+
+    hiddenText.classList.toggle('open');
+  });
+});
+
+
 return div
 }
 
 
+
+    
 
