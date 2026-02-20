@@ -282,9 +282,157 @@ homeQuestion.innerHTML = `
     </div>
 `
 
+const subscribeCostPlanPage = document.createElement('div')
+subscribeCostPlanPage.classList.add('subscribePlan')
+subscribeCostPlanPage.innerHTML = `
+    <div class = 'subscribePlanHeader'>
+
+        <div class = 'subscribePlanInfo'>
+            <h1>Choose the plan that's right for you</h1>
+            <p>Join StreamVibe and select from our flexible subscription options tailored to suit your viewing preferences. Get ready for non-stop entertainment!</p>
+        </div>
+
+        <div class = 'subscribePlanBtns'>
+
+            <div class = 'subscribePlanBtnsOne subscribeBtnActive'>
+                <p>Monthly</p>
+            </div>
+
+            <div class = 'subscribePlanBtnsTwo'>
+                <p>Yearly</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class = 'subscribePlanCards'>
+
+        <div class = 'subscribePlanCard'>
+
+            <div class = 'subscribePlanCardInfo'>
+                <h2>Basic Plan</h2>
+                <p>Enjoy an extensive library of movies and shows, featuring a range of content, including recently released titles.</p>
+            </div>
+
+            <div class = 'subscribePlanCost'>
+
+                <div class = 'subscribePlan4Month'>
+                    <p>$9.99</p>
+                    <p>/month</p>
+                </div>
+
+                <div class = 'subscribePlan4Year whoIsHidden'>
+                    <p>$100</p>
+                    <p>/year</p>
+                </div>
+
+            </div>
+
+            <div class = 'subscribePlanCardBtns'>
+                <div><p>Start Free Trial</p></div>
+                <div><p>Choose Plan</p></div>
+            </div>
+
+        </div>
+
+        <div class = 'subscribePlanCard'>
+
+            <div class = 'subscribePlanCardInfo'>
+                <h2>Standard Plan</h2>
+                <p>Access to a wider selection of movies and shows, including most new releases and exclusive content</p>
+            </div>
+
+            <div>
+
+                <div class = 'subscribePlan4Month'>
+                    <p>$12.99</p>
+                    <p>/month</p>
+                </div>
+
+                <div class = 'subscribePlan4Year whoIsHidden'>
+                    <p>$120</p>
+                    <p>/year</p>
+                </div>
+
+            </div>
+
+            <div class = 'subscribePlanCardBtns'>
+                <div><p>Start Free Trial</p></div>
+                <div><p>Choose Plan</p></div>
+            </div>
+
+        </div>
+
+        <div class = 'subscribePlanCard'>
+
+            <div class = 'subscribePlanCardInfo'>
+                <h2>Premium Plan</h2>
+                <p>Access to a widest selection of movies and shows, including all new releases and Offline Viewing</p>
+            </div>
+
+            <div>
+
+                <div class = 'subscribePlan4Month'>
+                    <p>$14.99</p>
+                    <p>/month</p>
+                </div>
+
+                <div class = 'subscribePlan4Year whoIsHidden'>
+                    <p>$150</p>
+                    <p>/year</p>
+                </div>
+
+            </div>
+
+            <div class = 'subscribePlanCardBtns'>
+                <div><p>Start Free Trial</p></div>
+                <div><p>Choose Plan</p></div>
+            </div>
+
+        </div>
+
+    </div>
+`
+
+
 div.append(genresSectionPage)
 div.append(deviceSection)
 div.append(homeQuestion)
+div.append(subscribeCostPlanPage)
+
+    const monthYearlyCostBtn1 = subscribeCostPlanPage.querySelector('.subscribePlanBtnsOne')
+    const monthYearlyCostBtn2 = subscribeCostPlanPage.querySelector('.subscribePlanBtnsTwo')
+    const howMuch4Month = subscribeCostPlanPage.querySelectorAll('.subscribePlan4Month')
+    const howMuch4Year = subscribeCostPlanPage.querySelectorAll('.subscribePlan4Year')
+
+    monthYearlyCostBtn1.addEventListener('click' ,() =>{
+        monthYearlyCostBtn2.classList.remove('subscribeBtnActive')
+        monthYearlyCostBtn1.classList.add('subscribeBtnActive')
+
+        howMuch4Month.forEach((month) =>{
+            month.classList.remove('whoIsHidden')
+        }) 
+        howMuch4Year.forEach((year) =>{
+            year.classList.add('whoIsHidden')
+        })  
+
+    })
+
+    monthYearlyCostBtn2.addEventListener('click' ,() =>{
+        monthYearlyCostBtn1.classList.remove('subscribeBtnActive')
+        monthYearlyCostBtn2.classList.add('subscribeBtnActive')
+
+        howMuch4Year.forEach((year) =>{
+            year.classList.remove('whoIsHidden')
+        }) 
+        howMuch4Month.forEach((month) =>{
+            month.classList.add('whoIsHidden')
+        }) 
+    })
+
+
+
 
 
     const homeQuestionsOpen = homeQuestion.querySelectorAll('.homeQuestionTxtBtn')

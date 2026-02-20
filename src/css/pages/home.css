@@ -262,6 +262,7 @@
 }
 .homeQuestionTxtHidden{
     display: none;
+    color: #999999;
 }
 
 .homeQuestionTxtHidden.open{
@@ -345,4 +346,164 @@
 .homeQuestionTxtBtn span:nth-child(1){
     transform: translateY(0) rotate(90deg);
     transition: transform 0.3s;
+}
+
+@media(max-width:390px){
+    .homeQuestionBlock{
+        padding: 0px;
+        padding-top: 100px;
+    }
+
+    .homeQuestionHeader{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .homeQuestions{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .homeQuestions div:nth-child(8){
+        display: none;
+    }
+
+    .homeQuestions div:nth-child(7){
+        display: none;
+    }
+}
+
+
+.subscribePlan{
+    padding: 150px 162px 150px 162px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.subscribePlanHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.subscribePlanBtns{
+    display: flex;   
+    padding: 10px;
+    background-color: #0F0F0F;
+    border-radius: 10px;
+    border: 1px solid #262626;
+    align-self: center;
+}
+
+.subscribePlanBtnsOne p{
+    margin: 0px;
+    padding: 14px 24px 14px 24px;
+    height: auto;
+}
+
+.subscribePlanBtnsTwo p{
+    padding: 14px 24px 14px 24px;
+    margin: 0px;
+}
+
+.subscribeBtnActive{
+    background-color: #1F1F1F;
+    border-radius: 8px;
+    transition: 0.6s;
+}
+
+.subscribePlanInfo h1{
+    color: white;
+}
+
+.subscribePlanInfo p{
+    color:#999999;
+}
+
+.subscribePlanCards{
+    display: flex;
+    gap: 30px;
+}
+
+.subscribePlanCard{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    background-color: #1A1A1A;
+    border-radius: 12px;
+    border: 1px solid #262626;
+}
+
+.subscribePlanCardInfo h2{
+    color: white;
+}
+
+.subscribePlanCardInfo p{
+    color: #999999;
+}
+
+.subscribePlanCard div:nth-child(1) h2{
+    font-size: 24px;
+}
+
+.subscribePlan4Month{
+    display: flex;
+    align-items: flex-end;
+}
+
+.subscribePlan4Month p:nth-child(1){
+    font-size: 40px;
+    margin: 0px;
+}
+
+.subscribePlan4Month p:nth-child(2){
+    margin: 0px;
+}
+
+.subscribePlan4Year{
+    display: flex;
+    align-items: flex-end;
+}
+
+.subscribePlan4Year p:nth-child(1){
+    font-size: 40px;
+    margin: 0px;
+}
+
+.subscribePlan4Year p:nth-child(2){
+    margin: 0px;
+}
+
+.subscribePlanCardBtns{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.subscribePlanCardBtns div:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #141414;
+    padding: 0px 35px 0px 35px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.subscribePlanCardBtns div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    padding: 10px 44px 10px 44px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.whoIsHidden{
+    display: none  !important;
 }
