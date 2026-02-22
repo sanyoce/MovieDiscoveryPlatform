@@ -507,3 +507,40 @@
 .whoIsHidden{
     display: none  !important;
 }
+
+@media(max-width: 390px){
+    .subscribePlan{
+        padding: 100px 0px 100px 0px;
+    }
+
+    .subscribePlanHeader{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .subscribePlanBtns{
+        align-self: flex-start;
+    }
+
+    .subscribePlanCards{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .subscribePlanCard{
+        padding: 24px;
+        gap: 20px;
+    }
+
+    .subscribePlanCardBtns div:nth-child(1){
+        padding: 0px 10px;
+    }
+
+    .subscribePlanCardBtns div:nth-child(1) p{
+        margin: 0px;
+    }
+
+    .subscribePlanCardBtns div:nth-child(2){
+        padding: 0px 32px;
+    }
+}
