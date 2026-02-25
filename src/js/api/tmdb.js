@@ -30,8 +30,9 @@ export async function getGenres(){
   }
 
 
-export async function getPoster() {
+export async function getPoster(page = 1) {
     return request('/discover/movie', {
       language: 'en-US',
+      page,
   })
 }

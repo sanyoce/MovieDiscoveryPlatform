@@ -6,11 +6,14 @@ export  async function searchPage() {
         <div class='searchBlock'>
             <input/>
         </div>
+        <div class='searchContainer'>
+
+        </div>
         <div class='mainDefPage'>
         
         </div>
     `;
-    
+    // Логика дефолтного выведения фильмов
     const IMG_BASE = 'https://image.tmdb.org/t/p/w200';
     const postersData = await getPoster()
     const posters = postersData.results
@@ -45,7 +48,33 @@ export  async function searchPage() {
     mainDefFilms.append(defaultPosters)
     })
 
-    // const input = main.querySelector('input')
+    // тут начинается логика поиска
+
+    const input = main.querySelector('input')
+    
+    input.addEventListener(('input'), ()=>{
+        const text = input.value.trim().toLowerCase()
+        const searchContainerMain = main.querySelector('.searchContainer')
+        
+        searchContainerMain.innerHTML = ''
+        if(!text){
+            return searchContainerMain.innerHTML=``
+        }
+        const filteredTitles = posters
+        .filter(postersDataF => postersDataF.original_title.toLowerCase().includes(text))
+        filteredTitles.forEach(titles =>{
+            const searchTitles = document.createElement('div')
+            searchTitles.innerHTML = `
+                <div class='searchImg'></div>
+                <h1>${titles.original_title}</h1>
+            `
+        const searchTitlesImg = searchTitles.querySelector('.searchImg')
+        const searchImgContainer = document.createElement('img')
+        searchImgContainer.src = IMG_BASE + titles.poster_path
+        searchTitlesImg.append(searchImgContainer)
+        searchContainerMain.append(searchTitles)
+        })
+    })
     return main
 }
 

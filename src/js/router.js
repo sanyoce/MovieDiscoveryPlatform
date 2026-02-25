@@ -1,13 +1,15 @@
 import {homePage} from './pages/HomePage.js';
 import {searchPage} from './pages/SearchPage.js';
-import {favoritePage} from './pages/FavoritesPage.js';
-import {detailPage} from './pages/DetailPage.js';
+import {MoviesShowsPage} from './pages/Movies & Shows.js';
+import {supportPage} from './pages/Support.js';
+import {descriptionPage} from './pages/DescriptionPage.js'
 
 const routes = {
     '#/home': homePage,
     '#/search': searchPage,
-    '#/favorites': favoritePage,
-    '#/details': detailPage,
+    '#/favorites': MoviesShowsPage,
+    '#/support': supportPage,
+    '#/description':descriptionPage,
 }
 
 async function renderRout(){

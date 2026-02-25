@@ -10,9 +10,10 @@ export function Header(){
         </div>
 
         <div class = 'headerLinks'>
-            <a href="#/home" class = 'navLinks headerLinksClick'>HOME</a>
-            <a href="#/favorites" class = 'navLinks'>FAVORITES</a>
-            <a href="#/details" class = 'navLinks'>DETAILS</a>
+            <a href="#/home" class = 'navLinks headerLinksClick'>Home</a>
+            <a href="#/favorites" class = 'navLinks'>Movies & Shows</a>
+            <a href="#/support" class = 'navLinks'>Support</a>
+            <a href="#/description" class = 'navLinks'>Description Page</a>
         </div>
 
         <div class = 'headerButtons'>
