@@ -1,13 +1,12 @@
 import { getGenres, getPoster } from "../api/tmdb.js";
 
 export async function homePage(){
-    const div = document.createElement('div')
-    div.classList.add('homePage')
-    div.innerHTML = `
+    const main = document.createElement('div')
+    main.classList.add('homePage')
+    main.innerHTML = `
 
         <div class = 'homeImg'><img src='./assets/images/Abstract Design (1).svg'/></div>
-        
-
+    
         <div class = 'homeAbout'>
 
             <H1>The Best Streaming Experience</H1>
@@ -23,6 +22,8 @@ export async function homePage(){
 
         </div>
     `;
+
+
 const IMG_BASE = 'https://image.tmdb.org/t/p/w200';
 
 const genresData = await getGenres()
@@ -33,11 +34,8 @@ const genresSectionPage = document.createElement('section')
 genresSectionPage.classList.add('genresPage')
 genresSectionPage.innerHTML =`
 `;
-
-
 const genres = genresData.genres.slice(0, 5);
 const movies = postersData.results;
-
 
 genres.forEach(genre => {
 
@@ -70,6 +68,8 @@ genres.forEach(genre => {
 
 genresSectionPage.append(genreBlock);
 });
+
+main.append(genresSectionPage)
 
 
 const deviceSection = document.createElement('div')
@@ -150,7 +150,9 @@ deviceSection.innerHTML = `
         </div>
 
     </div>
-`
+`;
+
+main.append(deviceSection)
 
 const homeQuestion = document.createElement('div')
 homeQuestion.classList.add('homeQuestionBlock')
@@ -172,115 +174,176 @@ homeQuestion.innerHTML = `
     <div class = 'homeQuestions'>
 
         <div class = 'homeQuestion'>
-            <div class = 'homeQuestionNumber'><p>01</p></div>
+            <div class='homeQuestionWrapper'>
+                <div class = 'homeQuestionNumber'><p>01</p></div>
 
-            <div class = 'homeQuestionTxt'>
-                <p>What is StreamVibe?</p>
+                <div class = 'homeQuestionTxt'>
+                    <p>What is StreamVibe?</p>
+                    
+                </div>
+
+                <div class = 'homeQuestionTxtBtn'>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>    
+            <div>
                 <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
-            </div>
-
-            <div class = 'homeQuestionTxtBtn'>
-                <span></span>
-                <span></span>
             </div>
         </div>
 
         <div class = 'homeQuestion'>
-            <div class = 'homeQuestionNumber'><p>02</p></div>
+            <div class='homeQuestionWrapper'>
+                <div class = 'homeQuestionNumber'><p>01</p></div>
 
-            <div class = 'homeQuestionTxt'>
-                <p>How much does StreamVibe cost?</p>
+                <div class = 'homeQuestionTxt'>
+                    <p>What is StreamVibe?</p>
+                    
+                </div>
+
+                <div class = 'homeQuestionTxtBtn'>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>    
+            <div>
                 <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
-            </div>
-
-            <div class = 'homeQuestionTxtBtn '>
-                <span></span><span></span>
             </div>
         </div>
 
         <div class = 'homeQuestion'>
-            <div class = 'homeQuestionNumber'><p>03</p></div>
+            <div class='homeQuestionWrapper'>
+                <div class = 'homeQuestionNumber'><p>01</p></div>
 
-            <div class = 'homeQuestionTxt'>
-                <p>What content is available on StreamVibe?</p>
+                <div class = 'homeQuestionTxt'>
+                    <p>What is StreamVibe?</p>
+                    
+                </div>
+
+                <div class = 'homeQuestionTxtBtn'>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>    
+            <div>
                 <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
-            </div>
-
-            <div class = 'homeQuestionTxtBtn '>
-                <span></span>
-                <span></span>
             </div>
         </div>
 
         <div class = 'homeQuestion'>
-            <div class = 'homeQuestionNumber'><p>04</p></div>
+            <div class='homeQuestionWrapper'>
+                <div class = 'homeQuestionNumber'><p>01</p></div>
 
-            <div class = 'homeQuestionTxt'>
-                <p>How can I watch StreamVibe?</p>
+                <div class = 'homeQuestionTxt'>
+                    <p>What is StreamVibe?</p>
+                    
+                </div>
+
+                <div class = 'homeQuestionTxtBtn'>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>    
+            <div>
                 <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
-            </div>
-
-            <div class = 'homeQuestionTxtBtn'>
-                <span></span><span></span>
             </div>
         </div>
 
         <div class = 'homeQuestion'>
-            <div class = 'homeQuestionNumber'><p>05</p></div>
+            <div class='homeQuestionWrapper'>
+                <div class = 'homeQuestionNumber'><p>01</p></div>
 
-            <div class = 'homeQuestionTxt'>
-                <p>How do I sign up for StreamVibe?</p>
+                <div class = 'homeQuestionTxt'>
+                    <p>What is StreamVibe?</p>
+                    
+                </div>
+
+                <div class = 'homeQuestionTxtBtn'>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>    
+            <div>
                 <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
-            </div>
-
-            <div class = 'homeQuestionTxtBtn '>
-                <span></span><span></span>
             </div>
         </div>
 
         <div class = 'homeQuestion'>
-            <div class = 'homeQuestionNumber'><p>06</p></div>
+            <div class='homeQuestionWrapper'>
+                <div class = 'homeQuestionNumber'><p>01</p></div>
 
-            <div class = 'homeQuestionTxt'>
-                <p>What is the StreamVibe free trial?</p>
+                <div class = 'homeQuestionTxt'>
+                    <p>What is StreamVibe?</p>
+                    
+                </div>
+
+                <div class = 'homeQuestionTxtBtn'>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>    
+            <div>
                 <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
-            </div>
-
-            <div class = 'homeQuestionTxtBtn'>
-                <span></span><span></span>
             </div>
         </div>
 
         <div class = 'homeQuestion'>
-            <div class = 'homeQuestionNumber'><p>07</p></div>
+            <div class='homeQuestionWrapper'>
+                <div class = 'homeQuestionNumber'><p>01</p></div>
 
-            <div class = 'homeQuestionTxt'>
-                <p>How do I contact StreamVibe customer support?</p>
+                <div class = 'homeQuestionTxt'>
+                    <p>What is StreamVibe?</p>
+                </div>
+
+                <div class = 'homeQuestionTxtBtn'>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>    
+            <div>
                 <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
-            </div>
-
-            <div class = 'homeQuestionTxtBtn'>
-                <span></span>
-                <span></span>
             </div>
         </div>
 
         <div class = 'homeQuestion'>
-            <div class = 'homeQuestionNumber'><p>08</p></div>
+            <div class='homeQuestionWrapper'>
+                <div class = 'homeQuestionNumber'><p>01</p></div>
 
-            <div class = 'homeQuestionTxt'>
-                <p>What are the StreamVibe payment methods?</p>
+                <div class = 'homeQuestionTxt'>
+                    <p>What is StreamVibe?</p>
+                    
+                </div>
+
+                <div class = 'homeQuestionTxtBtn'>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>    
+            <div>
                 <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
-            </div>
-
-            <div class = 'homeQuestionTxtBtn'>
-                <span></span>
-                <span></span>
             </div>
         </div>
 
     </div>
-`
+`;
+
+main.append(homeQuestion)
+
+const homeQuestionsOpen = homeQuestion.querySelectorAll('.homeQuestion')
+const homeTxtHidden = homeQuestion.querySelectorAll('.homeQuestionTxtHidden')
+    homeQuestionsOpen.forEach((btn) =>{
+        btn.addEventListener('click', () =>{
+            btn.classList.toggle('open');
+        })
+    })
+
+    homeQuestionsOpen.forEach((btn) => {
+        btn.addEventListener('click', () => {
+        const question = btn.closest('.homeQuestion');
+        const hiddenText = question.querySelector('.homeQuestionTxtHidden');
+        hiddenText.classList.toggle('open');
+  });
+});
 
 const subscribeCostPlanPage = document.createElement('div')
 subscribeCostPlanPage.classList.add('subscribePlan')
@@ -393,68 +456,17 @@ subscribeCostPlanPage.innerHTML = `
         </div>
 
     </div>
-`
+`;
 
+main.append(subscribeCostPlanPage)
 
-div.append(genresSectionPage)
-div.append(deviceSection)
-div.append(homeQuestion)
-div.append(subscribeCostPlanPage)
+const costSwitchBtns = subscribeCostPlanPage.querySelector('.subscribePlanBtns')
+const monthYearlyCostBtn1 = subscribeCostPlanPage.querySelector('.subscribePlanBtnsOne')
+const monthYearlyCostBtn2 = subscribeCostPlanPage.querySelector('.subscribePlanBtnsTwo')
+const howMuch4Month = subscribeCostPlanPage.querySelectorAll('.subscribePlan4Month')
+const howMuch4Year = subscribeCostPlanPage.querySelectorAll('.subscribePlan4Year')
 
-    const monthYearlyCostBtn1 = subscribeCostPlanPage.querySelector('.subscribePlanBtnsOne')
-    const monthYearlyCostBtn2 = subscribeCostPlanPage.querySelector('.subscribePlanBtnsTwo')
-    const howMuch4Month = subscribeCostPlanPage.querySelectorAll('.subscribePlan4Month')
-    const howMuch4Year = subscribeCostPlanPage.querySelectorAll('.subscribePlan4Year')
-
-    monthYearlyCostBtn1.addEventListener('click' ,() =>{
-        monthYearlyCostBtn2.classList.remove('subscribeBtnActive')
-        monthYearlyCostBtn1.classList.add('subscribeBtnActive')
-
-        howMuch4Month.forEach((month) =>{
-            month.classList.remove('whoIsHidden')
-        }) 
-        howMuch4Year.forEach((year) =>{
-            year.classList.add('whoIsHidden')
-        })  
-
-    })
-
-    monthYearlyCostBtn2.addEventListener('click' ,() =>{
-        monthYearlyCostBtn1.classList.remove('subscribeBtnActive')
-        monthYearlyCostBtn2.classList.add('subscribeBtnActive')
-
-        howMuch4Year.forEach((year) =>{
-            year.classList.remove('whoIsHidden')
-        }) 
-        howMuch4Month.forEach((month) =>{
-            month.classList.add('whoIsHidden')
-        }) 
-    })
-
-
-
-
-
-    const homeQuestionsOpen = homeQuestion.querySelectorAll('.homeQuestionTxtBtn')
-    const homeTxtHidden = homeQuestion.querySelectorAll('.homeQuestionTxtHidden')
-    homeQuestionsOpen.forEach((btn) =>{
-        btn.addEventListener('click', () =>{
-            btn.classList.toggle('open');
-            homeTxtHidden.toggle('open')
-        })
-    })
-
-    homeQuestionsOpen.forEach((btn) => {
-    btn.addEventListener('click', () => {
-    const question = btn.closest('.homeQuestion');
-    const hiddenText = question.querySelector('.homeQuestionTxtHidden');
-
-    hiddenText.classList.toggle('open');
-  });
-});
-
-
-return div
+return main
 }
 
 

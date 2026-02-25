@@ -11,7 +11,6 @@ export function Header(){
 
         <div class = 'headerLinks'>
             <a href="#/home" class = 'navLinks headerLinksClick'>HOME</a>
-            <a href="#/search" class = 'navLinks'>SEARCH</a>
             <a href="#/favorites" class = 'navLinks'>FAVORITES</a>
             <a href="#/details" class = 'navLinks'>DETAILS</a>
         </div>
@@ -19,7 +18,8 @@ export function Header(){
         <div class = 'headerButtons'>
 
             <div class = 'buttonSearch'>
-                <img src='./assets/icons/Vector.svg' alt="#"/>
+                <a href="#/search" class='returnSearch'><img src='./assets/icons/Vector.svg' alt="#"/></a>
+                <a href="#/home" class='returnMain hideThis'><img src='./assets/icons/Vector (Stroke).svg'/></a>
             </div>
 
             <div class = 'buttonNotification'>
@@ -35,6 +35,8 @@ export function Header(){
     </div>
     `;
     return header
+
+
 }   
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -62,3 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
         
     
 });
+
+document.addEventListener('DOMContentLoaded', () =>{
+    const searchPage = document.querySelector('.returnSearch')
+    const homePage = document.querySelector('.returnMain')
+
+    searchPage.addEventListener(('click'), () =>{
+        searchPage.classList.toggle('hideThis')
+        homePage.classList.toggle('hideThis')
+    })
+    homePage.addEventListener(('click'), () =>{
+        homePage.classList.toggle('hideThis')
+        searchPage.classList.toggle('hideThis')
+    })
+})
+
+
+

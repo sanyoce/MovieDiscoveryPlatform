@@ -1,7 +1,6 @@
 .homePage{
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     padding-top: 75px;
 }
 
@@ -46,41 +45,6 @@
     padding:0px 10px 0px 10px;
 }
 
-@media(max-width:1440px){
-    /*  */
-}
-
-@media(max-width:390px){
-
-    .homePage{
-        padding-left: 20px;
-    }
-
-    .homePage div:nth-child(1) img{
-        width: 200px;
-        height: 200px;
-    }
-
-    .homeAbout h1{
-        font-size: 28px;
-        text-align: center;
-    }
-
-    .homeAboutTxt{
-        display: none;
-    }
-
-    .homeAboutPhone{
-        display: block;
-        text-align: center;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: 0;
-    }
-}
-
-
 .genresPage{
     display: flex;
     gap: 30px;
@@ -113,43 +77,6 @@
     padding-top: 70px;
     color: white;
 }
-
-@media(max-width:390px){
-    .genresPage{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        grid-template-rows: repeat(2, auto);
-    }
-
-    .genreBlock{
-        background-color: #1A1A1A;
-        padding: 10px 10px 0px 10px;
-        border-radius: 12px;
-    }
-
-    .posters{
-        display: grid;
-        gap: 2px;
-    }   
-
-    .posters img{
-        aspect-ratio: 1 / 1;
-        border-radius: 10px;
-    }
-
-    .genreTxt{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
-    color: white;
-    }
-
-    .genreTxt img{
-        width: 20px;
-        height: 20px;
-    }
-}
-
 
 .deviceSectionBlock{
     padding: 150px 162px 150px 161px;
@@ -213,53 +140,6 @@
     display: none;
 }
 
-@media(max-width:390px){
-
-    .deviceSectionInfo h2{
-    font-size: 20px;
-    color: white;
-    font-weight: 700;
-    line-height: 150%;
-    }
-
-    .deviceNotHiddenInfo{
-        display: none;
-    }
-
-    .deviceHiddenInfo{
-        display: block;
-    }
-
-    .deviceSectionBlock{
-    padding: 0;
-    gap: 64px;
-    padding-top: 100px;
-    }
-
-    .deviceSectionCards{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .deviceSectionCard{
-    padding: 24px;
-    gap: 10px;
-    border-radius: 12px;
-    }
-
-    .deviceSectionCard div:nth-child(1) img{
-    width: 24px;
-    height: 24px;
-    }
-
-    .deviceIcons{
-    width: 44px;
-    height: 44px;
-    background-color: #141414;
-    border-radius: 8px;
-
-    }
-}
 .homeQuestionTxtHidden{
     display: none;
     color: #999999;
@@ -273,7 +153,7 @@
     display: flex;
     flex-direction: column;
     gap: 80px;
-    padding: 0px 162px 150px 162px;
+    padding: 0px 162px 0px 162px;
 }
 
 .homeQuestionHeader{
@@ -300,18 +180,14 @@
     position: relative;
 }
 
-.homeQuestion{
+.homeQuestionWrapper{
     position: relative;
     display: flex;
     gap: 20px;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    padding: 30px 0px 30px 0px;
-    border-bottom: 1px solid red;
-}
-
-.homeQuestion:nth-last-child(-n + 2) {
-  border-bottom: none;
+    padding: 30px 0px 0px 0px;
+    /* border-bottom: 1px solid red; */
 }
 
 .homeQuestionNumber{
@@ -321,14 +197,16 @@
 }
 
 .homeQuestionTxt{
+    display: flex;
     font-size: 22px;
+    justify-self: flex-start;
 }
 
 .homeQuestionTxtBtn{
     position: relative;
-    margin-left: auto;
     width: 30px;
     height: 40px;
+    top: 15px;
 }
 
 .homeQuestionTxtBtn span{
@@ -347,35 +225,6 @@
     transform: translateY(0) rotate(90deg);
     transition: transform 0.3s;
 }
-
-@media(max-width:390px){
-    .homeQuestionBlock{
-        padding: 0px;
-        padding-top: 100px;
-    }
-
-    .homeQuestionHeader{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-
-    .homeQuestions{
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
-
-    .homeQuestions div:nth-child(8){
-        display: none;
-    }
-
-    .homeQuestions div:nth-child(7){
-        display: none;
-    }
-}
-
 
 .subscribePlan{
     padding: 150px 162px 150px 162px;
@@ -509,6 +358,147 @@
 }
 
 @media(max-width: 390px){
+    .homePage{
+        padding-left: 20px;
+    }
+
+    .homePage div:nth-child(1) img{
+        width: 200px;
+        height: 200px;
+    }
+
+    .homeAbout h1{
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .homeAboutTxt{
+        display: none;
+    }
+
+    .homeAboutPhone{
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: 0;
+    }
+
+
+    .genresPage{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: repeat(2, auto);
+    }
+
+    .genreBlock{
+        background-color: #1A1A1A;
+        padding: 10px 10px 0px 10px;
+        border-radius: 12px;
+    }
+
+    .posters{
+        display: grid;
+        gap: 2px;
+    }   
+
+    .posters img{
+        aspect-ratio: 1 / 1;
+        border-radius: 10px;
+    }
+
+    .genreTxt{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    color: white;
+    }
+
+    .genreTxt img{
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .deviceSectionInfo h2{
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    line-height: 150%;
+    }
+
+    .deviceNotHiddenInfo{
+        display: none;
+    }
+
+    .deviceHiddenInfo{
+        display: block;
+    }
+
+    .deviceSectionBlock{
+    padding: 0;
+    gap: 64px;
+    padding-top: 100px;
+    }
+
+    .deviceSectionCards{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .deviceSectionCard{
+    padding: 24px;
+    gap: 10px;
+    border-radius: 12px;
+    }
+
+    .deviceSectionCard div:nth-child(1) img{
+    width: 24px;
+    height: 24px;
+    }
+
+    .deviceIcons{
+    width: 44px;
+    height: 44px;
+    background-color: #141414;
+    border-radius: 8px;
+    }
+
+
+
+    .homeQuestionBlock{
+        padding: 0px;
+        padding-top: 100px;
+    }
+
+    .homeQuestionHeader{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .homeQuestions{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .homeQuestions div:nth-child(8){
+        display: none;
+    }
+
+    .homeQuestions div:nth-child(7){
+        display: none;
+    }
+
+    .homeQuestionWrapper{
+
+    }
+
+
+
     .subscribePlan{
         padding: 100px 0px 100px 0px;
     }

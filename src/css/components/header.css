@@ -74,7 +74,14 @@ header{
     opacity: 0;
 }
 
+.returnMain img{
+    width: 25px;
+    height: 25px;
+}
 
+.hideThis{
+    display: none;
+}
 
 @media (max-width:1440px){
     .headerLinks{

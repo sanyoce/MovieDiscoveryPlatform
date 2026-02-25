@@ -1,0 +1,40 @@
+.searchPage{
+    padding: 0px 162px 0px 162px;
+}
+
+.searchBlock input{
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+    border: 1px solid #1A1A1A;
+    background-color: #0F0F0F;
+    height: 50px;
+    width: 100%;
+}
+
+.mainDefPage{
+    display: grid;
+    grid-template-columns:repeat(6, 1fr);
+    grid-template-rows: auto;
+    padding-top: 100px;
+    gap: 30px;
+}
+
+.defaultFilms{
+    background-color: #1A1A1A;
+    padding: 20px;
+}
+
+.filmName{
+    min-width: 0;
+    overflow: hidden;
+}
+
+.filmName h2 {
+    margin: 0;
+}
+
+.rateFilm{
+    display: flex;
+    justify-content: space-between;
+}
