@@ -65,13 +65,9 @@ export  async function searchPage() {
         filteredTitles.forEach(titles =>{
             const searchTitles = document.createElement('div')
             searchTitles.innerHTML = `
-                <div class='searchImg'></div>
+                <div class='searchImg'><img src='${IMG_BASE + titles.poster_path}'/></div>
                 <h1>${titles.original_title}</h1>
             `
-        const searchTitlesImg = searchTitles.querySelector('.searchImg')
-        const searchImgContainer = document.createElement('img')
-        searchImgContainer.src = IMG_BASE + titles.poster_path
-        searchTitlesImg.append(searchImgContainer)
         searchContainerMain.append(searchTitles)
         })
     })

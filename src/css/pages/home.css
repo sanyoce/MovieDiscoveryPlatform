@@ -45,37 +45,76 @@
     padding:0px 10px 0px 10px;
 }
 
-.genresPage{
-    display: flex;
-    gap: 30px;
-    padding-top: 100px;
-    justify-content: center;
+
+
+.homeCarousel{
+    padding: 150px 162px 150px 161px;
 }
 
-.genreBlock{
-    background-color: #1A1A1A;
-    padding: 30px 30px 10px 30px;
-    border-radius: 12px;
-}
-
-.posters{
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    gap: 10px;
-    height: 200px;
-}
-
-.posters img{
-    width: 115px;
-    height: 123px;
-    border-radius: 10px;
-}
-
-.genreTxt{
+.headerCarousel{
     display: flex;
     justify-content: space-between;
-    padding-top: 70px;
+    align-items: center;
+}
+
+.headerCarouselInfo h1{
     color: white;
+    font-size: 38px;
+}
+
+.headerCarouselInfo p{
+    color: #999999;
+}
+
+.headerCarouselBtn{
+    background-color: #0F0F0F;
+    padding: 16px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.prev{
+    padding: 14px;
+    background-color: #1A1A1A;
+}
+
+.next{
+    padding: 14px;
+    background-color: #1A1A1A;
+}
+
+.createCarousel{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+}
+
+.blockCarousel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #1A1A1A;
+    border-radius: 12px;
+    border: 1px solid #262626;
+}
+
+.carouselPosters{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 30px;
+}
+
+
+.genreTxt{
+    padding: 0px 20px 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.genreTxt img{
+    width: 30px;
+    
 }
 
 .deviceSectionBlock{
