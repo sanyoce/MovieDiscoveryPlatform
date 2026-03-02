@@ -25,7 +25,5 @@ async function renderRout(){
 
 export function initRout(){
     window.addEventListener('hashchange', renderRout);
-    // window.addEventListener('load', renderRout);
-
-    renderRout()
+    window.addEventListener('load', renderRout);
 }

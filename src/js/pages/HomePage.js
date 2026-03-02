@@ -85,7 +85,7 @@ export async function homePage() {
                 posterImg.src = IMG_BASE + poster.poster_path
                 space4Posters.append(posterImg)
             })
-            
+
         })
 
         const prevBtn = homeCarouselSection.querySelector('.prev')
@@ -100,13 +100,10 @@ export async function homePage() {
             startIndex = Math.min(genresData.genres.length - step, startIndex + step)
             renderCarousel(startIndex, step)
         })
-        
+
     }
     renderCarousel(startIndex,step)
 
-    
-    
-    console.log(startIndex)
    
     
     main.append(homeCarouselSection)
