@@ -3,6 +3,9 @@
 }
 
 .movieBannerBackground{
+    background-size: cover;
+    background-position: center;
+    height: 835px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,3 +93,10 @@
     border-radius: 8px;
     padding: 15px;
 }
+
+
+
+/* .createCarousel{
+    display: flex;
+    flex-wrap: nowrap;
+} */

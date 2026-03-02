@@ -25,14 +25,28 @@ async function request(path, params = {}) {
 export async function getGenres(){
     return request('/genre/movie/list', {
       language: 'en-US',
+      page: 1,
     })
 
   }
 
 
-export async function getPoster(page) {
+export async function getPoster(pageNum) {
     return request('/discover/movie', {
       language: 'en-US',
-      page,
+      page: pageNum,
+  })
+}
+
+export async function getPopular() {
+    return request('/movie/popular', {
+      language: 'en-US',
+      page: 1,
+  })
+}
+
+export async function getMovieDetails(id) {
+  return request(`/movie/${id}`, {
+    language: 'en-US'
   })
 }

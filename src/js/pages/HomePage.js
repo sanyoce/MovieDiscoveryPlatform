@@ -26,7 +26,7 @@ export async function homePage() {
     const IMG_BASE = "https://image.tmdb.org/t/p/w200";
 
     const genresData = await getGenres();
-    const postersData = await getPoster();
+    const postersData = await getPoster(3);
 
     const  homeCarouselSection = document.createElement('div')
     homeCarouselSection.classList.add('homeCarousel')
