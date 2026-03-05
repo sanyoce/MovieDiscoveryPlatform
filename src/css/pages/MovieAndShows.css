@@ -100,3 +100,13 @@
     display: flex;
     flex-wrap: nowrap;
 } */
+
+.createCarouselShowPage {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.blockCarouselShowPage {
+  flex: 0 0 auto;      
+  width: 260px;         
+}

@@ -50,3 +50,9 @@ export async function getMovieDetails(id) {
     language: 'en-US'
   })
 }
+
+export async function getUpcoming() {
+  return request('/movie/upcoming',{
+    language: 'en-US'
+  })
+}

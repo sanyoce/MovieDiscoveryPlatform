@@ -1,12 +1,10 @@
-import { getGenres, getPoster, getPopular,getMovieDetails } from "../api/tmdb.js"
+import { getGenres, getPoster, getPopular,getMovieDetails,getUpcoming  } from "../api/tmdb.js"
 export  async function MoviesShowsPage() {
   const page = document.createElement('div')
   page.classList.add('movieAndShowPage')
   page.innerHTML = `
     <div class='movieBannerWrapper'></div>
   `;
-  
-console.log(getPopular())
 
 const genresData = await getGenres();
 const postersData = await getPoster();
@@ -24,9 +22,6 @@ const allMovies = [
   ...page5.results,
 ]
 
-
-console.log(genresData)
-console.log(postersData)
 
 let startIndexForBanner = 0
 let stepForBanner = 1
@@ -110,7 +105,7 @@ const ourGenresSectionSpaces = ourGenresSection.querySelector('.spaceForGenres')
 const  homeCarouselSection = document.createElement('div')
 homeCarouselSection.classList.add('moviesAndShowsCarousel')
 let startIndex = 0
-let step = 4
+let step = 5
 let anotherIndex = 0
 let anotherStep = 4
 let startIndexFotTrendind = 0
@@ -131,7 +126,7 @@ function renderCarousel(startIndex, step){
               <button class='next'><img src='./assets/icons/Vector 619.svg'/></button>
             </div>
           </div>
-          <div class='createCarousel'>
+          <div class='createCarouselShowPage'>
           </div>
         `
 homeCarouselSection.append(homeCarousel)
@@ -143,7 +138,7 @@ genres.forEach(genre =>{
   .filter(movie => movie.genre_ids?.includes(genre.id) && movie.poster_path)
   .slice(0,4)
   const containerCarousel = document.createElement('div')
-  containerCarousel.classList.add('blockCarousel')
+  containerCarousel.classList.add('blockCarouselShowPage')
   containerCarousel.innerHTML = `
     <div class='carouselPosters'>
     </div>
@@ -153,7 +148,7 @@ genres.forEach(genre =>{
       <img src = './assets/icons/Vector 619.svg'/>
     </div>
   `;
-  const carouselText = homeCarousel.querySelector('.createCarousel')
+  const carouselText = homeCarousel.querySelector('.createCarouselShowPage')
   carouselText.append(containerCarousel)
 
   poster4Genre.forEach(poster =>{
@@ -288,13 +283,12 @@ async function trendingNowCarousel(startIndex, step){
 trendingNowSection.append(homeCarousel)
 const findIdForTime = postersData.results[startIndex]
 const timeFilm = await getMovieDetails(findIdForTime.id)
-console.log(timeFilm)
 const genres = genresData.genres.slice(startIndex, startIndex + step)
 
 genres.forEach(genre =>{
   const poster4Genre = postersData.results
   .filter(movie => movie.genre_ids?.includes(genre.id) && movie.poster_path)
-  .slice(0,4)
+  .slice(0,1)
   const containerCarousel = document.createElement('div')
   containerCarousel.classList.add('blockCarousel')
   containerCarousel.innerHTML = `
@@ -332,8 +326,82 @@ genres.forEach(genre =>{
   })
 
 }
-trendingNowCarousel(startIndex,step)
+trendingNowCarousel(anotherIndex,anotherStep)
 spaceForTrendingNow.append(trendingNowSection)
+
+let indexForUpcoming = 0
+const stepForUpcoming = 4
+const spaceForUpcoming = ourGenresSection.querySelector('.spaceForNewReleases')
+const upcomingSection = document.createElement('div')
+upcomingSection.classList.add('upcomingBlock')
+
+async function renderUpcoming(startIndexFotTrendind, stepForTrending){
+  upcomingSection.innerHTML=``
+    const homeCarousel = document.createElement('div')
+    homeCarousel.classList.add('homePageCarousel')
+    homeCarousel.innerHTML=`
+        <div class='headerCarousel'>
+            <div class='headerCarouselInfo'>
+              <h2>Popular Top 10 In Genres</h2>
+            </div>
+                    
+            <div class='headerCarouselBtn'>
+              <button class='prev'><img src='./assets/icons/Vector 619 (1).svg'/></button>
+              <button class='next'><img src='./assets/icons/Vector 619.svg'/></button>
+            </div>
+          </div>
+          <div class='createCarousel'>
+          </div>
+        `
+upcomingSection.append(homeCarousel)
+const newReleases =await getUpcoming()
+const genres = genresData.genres.slice(startIndexFotTrendind, startIndexFotTrendind + stepForTrending)
+
+
+genres.forEach(genre =>{
+  const filteredReleases = newReleases.results.filter(movie => movie.genre_ids?.includes(genre.id) && movie.poster_path)
+  const poster4Genre = filteredReleases
+  .filter(movie => movie.genre_ids?.includes(genre.id) && movie.poster_path)
+  .slice(0,1)
+  const containerCarousel = document.createElement('div')
+  containerCarousel.classList.add('blockCarousel')
+  containerCarousel.innerHTML = `
+    <div class='carouselPosters'>
+    </div>
+
+    <div class = 'genreTxt'>
+      <div>
+      <p>${filteredReleases[0]?.release_date ?? 'Data is not defined'}</p>
+      <h2>${genre.name}</h2>
+      </div>
+      <img src = './assets/icons/Vector 619.svg'/>
+    </div>
+  `;
+  const carouselText = homeCarousel.querySelector('.createCarousel')
+  carouselText.append(containerCarousel)
+
+  poster4Genre.forEach(poster =>{
+    const space4Posters = containerCarousel.querySelector('.carouselPosters')
+    const posterImg = document.createElement('img')
+    posterImg.src = IMG_BASE + poster.poster_path
+    space4Posters.append(posterImg)
+  })
+
+})
+  const prev = upcomingSection.querySelector('.prev')
+  const next = upcomingSection.querySelector('.next')
+  prev.addEventListener('click', () => {
+    startIndexFotTrendind = Math.max(0, startIndexFotTrendind - stepForTrending)
+    renderUpcoming(startIndexFotTrendind, stepForTrending)
+  })
+  next.addEventListener('click', () => {
+    startIndexFotTrendind = Math.min(genresData.genres.length - stepForTrending, startIndexFotTrendind + stepForTrending)
+    renderUpcoming(startIndexFotTrendind, stepForTrending)
+  })
+
+}
+renderUpcoming(indexForUpcoming, stepForUpcoming)
+spaceForUpcoming.append(upcomingSection)
 
 return page
 }  
