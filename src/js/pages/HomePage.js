@@ -1,4 +1,5 @@
 import { getGenres, getPoster } from "../api/tmdb.js";
+const IMG_BASE = "https://image.tmdb.org/t/p/w500"
 
 export async function homePage() {
     const main = document.createElement("div");
@@ -23,110 +24,81 @@ export async function homePage() {
         </div>
     `;
 
-    const IMG_BASE = "https://image.tmdb.org/t/p/w200";
-
-    const genresData = await getGenres();
-    const postersData = await getPoster(3);
-
-    const  homeCarouselSection = document.createElement('div')
-    homeCarouselSection.classList.add('homeCarousel')
-
-    let startIndex = 0
-    let step = 4
-
-    function renderCarousel(startIndex, step){
-        homeCarouselSection.innerHTML=``
-
-        const homeCarousel = document.createElement('div')
-        homeCarousel.classList.add('homePageCarousel')
-        homeCarousel.innerHTML=`
-            <div class='headerCarousel'>
-                <div class='headerCarouselInfo'>
-                    <h1>Explore our wide variety of categories</h1>
-                    <p>Whether you're looking for a comedy to make you laugh, a drama to make you think, or a documentary to learn something new</p>
-                </div>
-                    
-                <div class='headerCarouselBtn'>
-                    <button class='prev'><img src='./assets/icons/Vector 619 (1).svg'/></button>
-                    <button class='next'><img src='./assets/icons/Vector (2).svg'/></button>
-                 </div>
+    const genre =  await getGenres()
+    const movies = await getPoster()
+    console.log(genre)
+    const homeCarousel = document.createElement('div')
+    homeCarousel.classList.add('homeCarouselSection')
+    homeCarousel.innerHTML = `
+        <div class='homeCarouselHeader'>
+            <div class='homeCarouselHeaderText'>
+                <h1>Explore our wide variety of categories</h1>
+                <p>Whether you're looking for a comedy to make you laugh, a drama to make you think, or a documentary to learn something new</p>
             </div>
-            <div class='createCarousel'>
-            
+            <div class='homeCarouselHeaderBtns'>
+                <button type="button" class='left'><img src='./assets/icons/Vector 619 (1).svg'></button>
+                <button type="button" class='right'><img src='./assets/icons/Vector 619.svg'></button>
+            </div>
+        </div>
+
+        <div class='spaceForHomeCarousel'>
+        </div>
+    `
+    main.append(homeCarousel)
+    const spaceForCarousel = homeCarousel.querySelector('.spaceForHomeCarousel')
+
+    let startIndexForHomeCarousel = 0
+    const stepForHomeCarousel = 4
+
+    async function renderHomeCarousel(startIndex,step){
+        const htmlForHomeCarousel = genre.genres
+        .slice(startIndex,startIndex + step)
+        .map(g =>{
+            const postersForHomeCarousel = movies.results
+            .filter(movies => movies.genre_ids.includes(g.id))
+            .slice(0,4)
+            .map(m =>{
+                return `
+                    <div class='moviePosters'>
+                        <img src='${IMG_BASE + m.poster_path}'>
+                    </div>
+                `
+            }).join('')
+
+        return `
+            <div class='homeCarouselCardBlock'>
+                <div class='spaceForPosters'>
+                    ${postersForHomeCarousel}
+                </div>
+                <div class='spaceForGenres'>
+                    <p>${g.name}</p>
+                    <img src='./assets/icons/Vector 619.svg'>
+                </div>
             </div>
         `
-
-        homeCarouselSection.append(homeCarousel)
-
-        const genres = genresData.genres.slice(startIndex, startIndex + step)
-
-        genres.forEach(genre =>{
-             const poster4Genre = postersData.results
-            .filter(movie => movie.genre_ids?.includes(genre.id) && movie.poster_path)
-            .slice(0,4)
-            const containerCarousel = document.createElement('div')
-            containerCarousel.classList.add('blockCarousel')
-            containerCarousel.innerHTML = `
-                <div class='carouselPosters'>
-
-                </div>
-
-                <div class = 'genreTxt'>
-                    <h2>${genre.name}</h2>
-                    <img src = './assets/icons/Vector 619.svg'/>
-                </div>
-            `
-            const carouselText = homeCarousel.querySelector('.createCarousel')
-            carouselText.append(containerCarousel)
-
-            poster4Genre.forEach(poster =>{
-                const space4Posters = containerCarousel.querySelector('.carouselPosters')
-                const posterImg = document.createElement('img')
-                posterImg.src = IMG_BASE + poster.poster_path
-                space4Posters.append(posterImg)
-            })
-
-        })
-
-        const prevBtn = homeCarouselSection.querySelector('.prev')
-        const nextBtn = homeCarouselSection.querySelector('.next')
-
-        prevBtn.addEventListener('click', () => {
-            startIndex = Math.max(0, startIndex - step)
-            renderCarousel(startIndex, step)
-        })
-
-        nextBtn.addEventListener('click', () => {
-            startIndex = Math.min(genresData.genres.length - step, startIndex + step)
-            renderCarousel(startIndex, step)
-        })
-
-    }
-    renderCarousel(startIndex,step)
-
-   
+        }).join('')
+        spaceForCarousel.innerHTML = htmlForHomeCarousel
     
-    main.append(homeCarouselSection)
-   
+    }
+    renderHomeCarousel(startIndexForHomeCarousel,stepForHomeCarousel)
+    
+    const prevBtn = homeCarousel.querySelector('.left')
+    const nextBtn = homeCarousel.querySelector('.right')
+    prevBtn.addEventListener('click', () => {
+        if(startIndexForHomeCarousel > 0) {
+            startIndexForHomeCarousel -= stepForHomeCarousel
+            renderHomeCarousel(startIndexForHomeCarousel,stepForHomeCarousel)
+        }
+    })
 
+    nextBtn.addEventListener('click', () => {
+        if (startIndexForHomeCarousel + stepForHomeCarousel < genre.genres.length) {
+            startIndexForHomeCarousel += stepForHomeCarousel
+            renderHomeCarousel(startIndexForHomeCarousel,stepForHomeCarousel)
+        }
+    })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
     const deviceSection = document.createElement("div");
     deviceSection.classList.add("deviceSectionBlock");
     deviceSection.innerHTML = `
@@ -219,13 +191,13 @@ export async function homePage() {
                 <h1>Frequently Asked Questions</h1>
                 <p>Got questions? We've got answers! Check out our FAQ section to find answers to the most common questions about StreamVibe.</p>
             </div>
-            
+
             <div class = 'homeQuestionHeaderBtn'>
                 <a>Ask a Question</a>
             </div>
 
         </div>
-        
+
         <div class = 'homeQuestions'>
 
             <div class = 'homeQuestion'>

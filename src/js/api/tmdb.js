@@ -23,12 +23,11 @@ async function request(path, params = {}) {
 
 
 export async function getGenres(){
-    return request('/genre/movie/list', {
-      language: 'en-US',
-      page: 1,
-    })
-
-  }
+  return request('/genre/movie/list', {
+    language: 'en-US',
+    page: 1,
+  }) 
+}
 
 
 export async function getPoster(pageNum) {

@@ -45,76 +45,77 @@
     padding:0px 10px 0px 10px;
 }
 
-
-
-.homeCarousel{
-    padding: 150px 162px 150px 161px;
+.homeCarouselSection{
+    padding: 100px 162px 100px 161px;
 }
 
-.headerCarousel{
+.homeCarouselHeader{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.headerCarouselInfo h1{
+.homeCarouselHeaderText{
     color: white;
-    font-size: 38px;
 }
 
-.headerCarouselInfo p{
-    color: #999999;
-}
-
-.headerCarouselBtn{
-    background-color: #0F0F0F;
-    padding: 16px;
+.homeCarouselHeaderBtns{
     display: flex;
-    justify-content: space-around;
+    gap: 20px;
+    padding: 16px;
+    background-color: #0F0F0F;
+    border: 1px solid #262626;
+    border-radius: 12px;
 }
 
-.prev{
-    padding: 14px;
+.left{
     background-color: #1A1A1A;
-}
-
-.next{
     padding: 14px;
-    background-color: #1A1A1A;
+    border: 1px solid #262626;
+    border-radius: 8px;
 }
 
-.createCarousel{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
+.right{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.spaceForHomeCarousel{
+    display: flex;
     gap: 30px;
 }
 
-.blockCarousel{
+.homeCarouselCardBlock{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #1A1A1A;
-    border-radius: 12px;
-    border: 1px solid #262626;
-}
-
-.carouselPosters{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+    width: 100%;
     padding: 30px;
+    background-color: #1A1A1A;
+    border: 1px solid #262626;
+    border-radius: 12px;
 }
 
+.spaceForPosters{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
 
-.genreTxt{
-    padding: 0px 20px 0px 20px;
+.moviePosters{
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.spaceForGenres{
     display: flex;
     justify-content: space-between;
-    color: white;
 }
 
-.genreTxt img{
+.spaceForGenres img{
     width: 30px;
-    
 }
 
 .deviceSectionBlock{
@@ -425,39 +426,7 @@
     }
 
 
-    .genresPage{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        grid-template-rows: repeat(2, auto);
-    }
 
-    .genreBlock{
-        background-color: #1A1A1A;
-        padding: 10px 10px 0px 10px;
-        border-radius: 12px;
-    }
-
-    .posters{
-        display: grid;
-        gap: 2px;
-    }   
-
-    .posters img{
-        aspect-ratio: 1 / 1;
-        border-radius: 10px;
-    }
-
-    .genreTxt{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
-    color: white;
-    }
-
-    .genreTxt img{
-        width: 20px;
-        height: 20px;
-    }
 
 
     .deviceSectionInfo h2{
