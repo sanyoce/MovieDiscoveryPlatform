@@ -94,19 +94,53 @@
     padding: 15px;
 }
 
-
-
-/* .createCarousel{
+.ourGenres{
     display: flex;
-    flex-wrap: nowrap;
-} */
-
-.createCarouselShowPage {
-  display: flex;
-  flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 50px;
 }
 
-.blockCarouselShowPage {
-  flex: 0 0 auto;      
-  width: 260px;         
+.carouselSection{
+    padding-top: 180px;
+    
+}
+
+.carouselSectionWrapper{
+    padding: 50px;
+    border: 1px solid #262626;
+    border-radius: 12px;
+    position: relative;
+}
+
+.borderElem{
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    padding: 10px 24px;
+    background-color: red;
+    position: absolute;
+    border-radius: 8px;
+    top: -20px;
+}
+
+@media(max-width: 1440px){
+    .movieBannerBackground{
+        height: 709px;
+    }
+
+    .movieBannerName{
+    color: white;
+    font-size: 27px;
+    margin: 0px;
+    }
+}
+
+@media(max-width: 390px){
+    .movieAndShowPage{
+    padding: 50px 0px 0px 16px;
+    }
+
+    .movieBannerDescription{
+    display: none;
+    }   
 }

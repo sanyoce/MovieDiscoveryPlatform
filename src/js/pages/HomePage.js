@@ -50,7 +50,7 @@ export async function homePage() {
     let startIndexForHomeCarousel = 0
     const stepForHomeCarousel = 4
 
-    async function renderHomeCarousel(startIndex,step){
+    function renderHomeCarousel(startIndex,step){
         const htmlForHomeCarousel = genre.genres
         .slice(startIndex,startIndex + step)
         .map(g =>{
@@ -78,10 +78,10 @@ export async function homePage() {
         `
         }).join('')
         spaceForCarousel.innerHTML = htmlForHomeCarousel
-    
+
     }
     renderHomeCarousel(startIndexForHomeCarousel,stepForHomeCarousel)
-    
+
     const prevBtn = homeCarousel.querySelector('.left')
     const nextBtn = homeCarousel.querySelector('.right')
     prevBtn.addEventListener('click', () => {
@@ -98,7 +98,6 @@ export async function homePage() {
         }
     })
 
-    
     const deviceSection = document.createElement("div");
     deviceSection.classList.add("deviceSectionBlock");
     deviceSection.innerHTML = `

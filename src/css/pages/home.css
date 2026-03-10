@@ -47,6 +47,9 @@
 
 .homeCarouselSection{
     padding: 100px 162px 100px 161px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 .homeCarouselHeader{
@@ -501,9 +504,6 @@
         display: none;
     }
 
-    .homeQuestionWrapper{
-
-    }
 
 
 
