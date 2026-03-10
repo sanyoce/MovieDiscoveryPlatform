@@ -102,7 +102,6 @@
 
 .carouselSection{
     padding-top: 180px;
-    
 }
 
 .carouselSectionWrapper{
@@ -122,6 +121,169 @@
     border-radius: 8px;
     top: -20px;
 }
+
+.popularTopTen{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.popularHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popularHeader p{
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.prevForPopular{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.nextForPopular{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.popularTopTenSpace{
+    display: flex;
+    gap: 30px;
+}
+
+.topTenInfo p:nth-child(1){
+    background-color: red;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.posterForPopular {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.moviePostersTest img{
+    width: 30px;
+}
+
+.trendingNowHeader p{
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.spaceForTrending{
+    display: flex;
+    gap: 20px;
+}
+
+.trendingNow{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 50px;
+}
+
+.trendingWrapper{
+    padding: 20px;
+    background-color: #0F0F0F;
+    border: 1px solid #262626;
+    border-radius: 12px;
+}
+
+.trendingWrapper img{
+    border-radius: 12px;
+}
+
+.trendingNowHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prevForTrending{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.nextForTrending{
+    padding: 14px;
+    background-color: #1A1A1A;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.trendingCardInfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.trendingTime{
+    display: flex;
+    gap: 6px;
+    padding: 6px;
+}
+
+.trendingTime img{
+    width: 24px;
+}
+
+.trendingWatches{
+    display: flex;
+    gap:6px;
+    padding: 6px;
+}
+
+.trendingWatches img{
+    width: 24px;
+}
+
+.newReleases{
+    padding-top: 50px;
+}
+
+.releasesHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.releasesHeaderInfo p{
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.prevForReleases{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.nextForReleases{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.spaceForReleases{
+    display: flex;
+}
+
 
 @media(max-width: 1440px){
     .movieBannerBackground{
