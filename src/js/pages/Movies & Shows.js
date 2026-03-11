@@ -171,9 +171,11 @@ const stepForHomeCarousel = 5
   })
 
 const spaceForSecondElem = carouselSection.querySelector('.popularTopTenSpace')
-
-const htmlForPopular = genresData.genres
-.slice(0,4)
+let index_for_popular = 0
+const step_for_popular = 4
+function popularCarousel(index,step){
+  const htmlForPopular = genresData.genres
+.slice(index,index + step)
 .map(g =>{
   const posterForPopular = postersData.results
   .filter(movies => movies.genre_ids.includes(g.id))
@@ -200,9 +202,33 @@ const htmlForPopular = genresData.genres
     </div>
   `
 }).join('')
-
 spaceForSecondElem.innerHTML = htmlForPopular
+}
+popularCarousel(index_for_popular,step_for_popular)
+const prevBtnPopular = carouselSection.querySelector('.prevForPopular')
+const nextBtnPopular = carouselSection.querySelector('.nextForPopular')
+prevBtnPopular.addEventListener('click', () => {
+  index_for_popular = Math.max(0, index_for_popular - step_for_popular)
+  popularCarousel(index_for_popular, step_for_popular)
+})
+nextBtnPopular.addEventListener('click', () => {
+  index_for_popular = Math.min(postersData.results.length - step_for_popular, index_for_popular + step_for_popular)
+  popularCarousel(index_for_popular, step_for_popular)
+})
 
+
+function getTrending(){
+  if(window.innerWidth <= 400){
+    return 2
+  }
+  return 5
+}
+let start_index_trending = 0
+let step_trending = getTrending()
+console.log('window width:', window.innerWidth)
+console.log('step:', getTrending())
+
+async function  trendingNow (start_index_trending,step_trending){
 function formatRuntime(minutes) {
     const hours = Math.floor(minutes / 60)
     const mins = minutes % 60
@@ -210,9 +236,21 @@ function formatRuntime(minutes) {
     return `${hours}h ${mins}m`
 }
 
+const getMovieDetailsTest = postersData.results
+
+const movies_with_details = await Promise.all(
+  getMovieDetailsTest.map(async(m) =>{
+    const details = await getMovieDetails(m.id)
+    return{
+      ...m,
+      runtime: details.runtime
+    }
+  })
+)
+
 const trendingNowSection = carouselSection.querySelector('.spaceForTrending')
-const htmlForTrending = postersData.results
-.slice(0,5)
+const htmlForTrending = movies_with_details
+.slice(start_index_trending,step_trending + start_index_trending)
 .map(elem =>{
   return`
   <div class ='trendingWrapper'>
@@ -220,7 +258,7 @@ const htmlForTrending = postersData.results
       <div class='trendingCardInfo'>
         <div class='trendingTime'>
           <img src='./assets/icons/Subtract.svg'/>
-          <p>2h</p>
+          <p>${formatRuntime(elem.runtime)}</p>
         </div>
         <div class='trendingWatches'>
           <img src='./assets/icons/Union.svg'/>
@@ -232,19 +270,69 @@ const htmlForTrending = postersData.results
   `
 }).join('')
 trendingNowSection.innerHTML = htmlForTrending
+}
+trendingNow(start_index_trending,step_trending)
+const prevBtnTrending = carouselSection.querySelector('.prevForTrending')
+const nextBtnTrending = carouselSection.querySelector('.nextForTrending')
+window.addEventListener('resize', () => {
+  step_trending = getTrending()
+  trendingNow(start_index_trending, step_trending)
+})
+prevBtnTrending.addEventListener('click', () => {
+  start_index_trending = Math.max(0, start_index_trending - step_trending)
+  trendingNow(start_index_trending, step_trending)
+})
+nextBtnTrending.addEventListener('click', () => {
+  start_index_trending = Math.min(postersData.results.length - step_trending, start_index_trending + step_trending)
+  trendingNow(start_index_trending, step_trending)
+})
 
-const spaceForReleases = carouselSection.querySelector('.spaceForReleases')
-const htmlForReleases = upcomingData.results
-.slice(0,5)
-.map(elem =>{
-  return`
-    <div class='releasessWrapper'>
-      <img src='${IMG_BASE + elem.poster_path}'/>
-      <p>Released at ${elem.release_date}</p>
-    </div>
-  `
-}).join('')
-spaceForReleases.innerHTML = htmlForReleases
+
+
+let index_for_releases = 0
+let step_for_releases = 5
+
+function releasesCarousel (index,step){
+  function formatReleaseDate(dateString) {
+  const date = new Date(dateString)
+
+  return date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  })
+}
+  const spaceForReleases = carouselSection.querySelector('.spaceForReleases')
+  const htmlForReleases = upcomingData.results
+  .slice(index,step + index)
+  .map(elem =>{
+    return`
+      <div class='releasessWrapper'>
+        <img src='${IMG_BASE + elem.poster_path}'/>
+        <p>Released at ${formatReleaseDate(elem.release_date)}</p>
+      </div>
+    `
+  }).join('')
+  spaceForReleases.innerHTML = htmlForReleases
+}
+const prevBtnReleases = carouselSection.querySelector('.prevForReleases')
+const nextBtnReleases = carouselSection.querySelector('.nextForReleases')
+releasesCarousel(index_for_releases,step_for_releases)
+
+prevBtnReleases.addEventListener('click', () => {
+  index_for_releases = Math.max(0, index_for_releases - step_for_releases)
+  releasesCarousel(index_for_releases, step_for_releases)
+})
+nextBtnReleases.addEventListener('click', () => {
+  index_for_releases = Math.min(upcomingData.results.length - step_for_releases, index_for_releases + step_for_releases)
+  releasesCarousel(index_for_releases, step_for_releases)
+})
+
+
+
+
+
+
 
 return page;
 }

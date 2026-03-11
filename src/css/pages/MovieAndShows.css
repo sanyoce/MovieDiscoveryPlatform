@@ -94,6 +94,7 @@
     padding: 15px;
 }
 
+
 .ourGenres{
     display: flex;
     flex-direction: column;
@@ -172,6 +173,7 @@
     aspect-ratio: 1 / 1;
     overflow: hidden;
     border-radius: 12px;
+    gap: 10px;
 }
 
 .moviePostersTest img{
@@ -186,6 +188,7 @@
 .spaceForTrending{
     display: flex;
     gap: 20px;
+    /* justify-content: space-between; */
 }
 
 .trendingNow{
@@ -195,15 +198,42 @@
     padding-top: 50px;
 }
 
-.trendingWrapper{
-    padding: 20px;
-    background-color: #0F0F0F;
+.trendingTime{
+    background-color: #141414;
     border: 1px solid #262626;
-    border-radius: 12px;
+    border-radius: 51px;
 }
 
-.trendingWrapper img{
+.trendingTime p {
+  margin: 0;
+  text-wrap: nowrap;
+}
+
+.trendingWatches{
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 51px;
+}
+
+.trendingWatches p{
+    margin: 0px;
+}
+
+.trendingWrapper{
+    padding: 20px;
+    background-color: #1A1A1A;
+    border: 1px solid #262626;
     border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.moviePostersTrending{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    object-position: center 20%;
 }
 
 .trendingNowHeader{
@@ -229,12 +259,15 @@
 .trendingCardInfo{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .trendingTime{
     display: flex;
     gap: 6px;
-    padding: 6px;
+    padding: 6px 10px 6px 6px;
+    justify-content: center;
+    align-items: center;
 }
 
 .trendingTime img{
@@ -244,7 +277,7 @@
 .trendingWatches{
     display: flex;
     gap:6px;
-    padding: 6px;
+    padding: 6px 10px 6px 6px;
 }
 
 .trendingWatches img{
@@ -253,6 +286,9 @@
 
 .newReleases{
     padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .releasesHeader{
@@ -282,6 +318,36 @@
 
 .spaceForReleases{
     display: flex;
+    gap: 20px;
+}
+
+.releasessWrapper{
+    padding: 20px;
+    background-color: #1A1A1A;
+    border: 1px solid #262626;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.releasessWrapper img{
+    border-radius: 8px;
+}
+
+.releasessWrapper p{
+    margin: 0px;
+    text-wrap: nowrap;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0;
+    text-align: center;
+    padding: 6px 10px 6px 6px;
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 51px;
+    line-height: 150%;
 }
 
 
@@ -305,4 +371,6 @@
     .movieBannerDescription{
     display: none;
     }   
+
+
 }
