@@ -55,3 +55,9 @@ export async function getUpcoming() {
     language: 'en-US'
   })
 }
+
+export async function getRated() {
+  return request('/movie/top_rated',{
+    language: 'en-US'
+  })
+}

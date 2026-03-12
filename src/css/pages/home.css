@@ -401,6 +401,12 @@
     display: none  !important;
 }
 
+@media(max-width:1440px){
+    .homeCarouselHeaderBtns{
+        padding: 12px;
+    }
+}
+
 @media(max-width: 390px){
     .homePage{
         padding-left: 20px;

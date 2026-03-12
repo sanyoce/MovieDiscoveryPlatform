@@ -1,4 +1,4 @@
-import { getGenres, getPoster, getPopular,getMovieDetails,getUpcoming  } from "../api/tmdb.js"
+import { getGenres, getPoster, getPopular,getMovieDetails,getUpcoming,getRated  } from "../api/tmdb.js"
 export  async function MoviesShowsPage() {
   const page = document.createElement('div')
   page.classList.add('movieAndShowPage')
@@ -31,10 +31,12 @@ movieBannerBlock.innerHTML=``
         <div class='movieBannerName'><h1>${names.original_title}</h1></div>
         <div class='movieBannerDescription'><p>${names.overview}</p></div>
         <div class='movieBannerBtns'>
-          <button><img src='./assets/icons/Rectangle 511 (Stroke).svg'/><p>Play Now</p></button>
-          <button><img src='./assets/icons/Vector (2).svg'/></button>
-          <button><img src='./assets/icons/Vector (3).svg'/></button>
-          <button><img src='./assets/icons/VEctor (4).svg'/></button>
+          <button class='redBtn'><img src='./assets/icons/Rectangle 511 (Stroke).svg'/><p>Play Now</p></button>
+          <div class='movie_banner_bnt_wrapper'>
+            <button><img src='./assets/icons/Vector (2).svg'/></button>
+            <button><img src='./assets/icons/Vector (3).svg'/></button>
+            <button><img src='./assets/icons/VEctor (4).svg'/></button>
+          </div>
         </div>
         <div class='prevNextBtns'>
           <button class='prevBtn'><img src='./assets/icons/Vector 619 (1).svg'/></button>
@@ -45,6 +47,8 @@ movieBannerBlock.innerHTML=``
     movieBannerBlock.append(movieBanner)
     return page
 })
+
+
 
 const prevBtn = movieBannerBlock.querySelector('.prevBtn')
 const nextBtn = movieBannerBlock.querySelector('.nextBtn')
@@ -57,6 +61,17 @@ nextBtn.addEventListener('click', () => {
   renderBanner(startIndex, step)
 })
 }renderBanner(startIndexForBanner,stepForBanner)
+
+const movie_show_change = document.createElement('div')
+movie_show_change.classList.add('movieShowBtn')
+movie_show_change.innerHTML=`
+  <div class='movieShowBtnWrapper'>
+    <button class='movieBtn btnActive'>Movies</button>
+    <button class='showBtn'>Shows</button>
+  </div>
+`;
+
+page.append(movie_show_change)
 
 const carouselSection = document.createElement('div')
 carouselSection.classList.add('carouselSection')
@@ -97,7 +112,16 @@ carouselSection.innerHTML = `
 
       <div class='spaceForReleases'></div>
     </div>
-    <div class='mustMovies'> </div>
+    <div class='mustMovies'> 
+      <div class='ratedHeader'>
+        <p>Must - Watch Movies</p>
+        <div class='homeCarouselHeaderBtns'>
+          <button class='prevForRated'><img src='./assets/icons/Vector 619 (1).svg'/></button>
+          <button class='nextForRated'><img src='./assets/icons/Vector 619.svg'/></button>
+        </div>
+      </div>
+      <div class='spaceForRated'></div>
+    </div>
   </div>
 `
 page.append(carouselSection)
@@ -122,7 +146,7 @@ const homeCarousel = document.createElement('div')
 spaceForFirstElem.append(homeCarousel)
 const spaceForCarousel = homeCarousel.querySelector('.spaceForHomeCarousel')
 let startIndexForHomeCarousel = 0
-const stepForHomeCarousel = 5
+const stepForHomeCarousel = getTrending()
 
   function renderHomeCarousel(startIndex,step){
       const htmlForHomeCarousel = genresData.genres
@@ -171,8 +195,14 @@ const stepForHomeCarousel = 5
   })
 
 const spaceForSecondElem = carouselSection.querySelector('.popularTopTenSpace')
+function getPopular(){
+  if(window.innerWidth <= 500){
+    return 2
+  }
+  return 4
+}
 let index_for_popular = 0
-const step_for_popular = 4
+const step_for_popular = getPopular()
 function popularCarousel(index,step){
   const htmlForPopular = genresData.genres
 .slice(index,index + step)
@@ -218,7 +248,7 @@ nextBtnPopular.addEventListener('click', () => {
 
 
 function getTrending(){
-  if(window.innerWidth <= 400){
+  if(window.innerWidth <= 500){
     return 2
   }
   return 5
@@ -247,7 +277,7 @@ const movies_with_details = await Promise.all(
     }
   })
 )
-
+ 
 const trendingNowSection = carouselSection.querySelector('.spaceForTrending')
 const htmlForTrending = movies_with_details
 .slice(start_index_trending,step_trending + start_index_trending)
@@ -290,7 +320,7 @@ nextBtnTrending.addEventListener('click', () => {
 
 
 let index_for_releases = 0
-let step_for_releases = 5
+let step_for_releases = getTrending()
 
 function releasesCarousel (index,step){
   function formatReleaseDate(dateString) {
@@ -328,11 +358,78 @@ nextBtnReleases.addEventListener('click', () => {
   releasesCarousel(index_for_releases, step_for_releases)
 })
 
+let index_for_rated = 0
+let step_for_rated = getPopular()
+const ratedMovies = await getRated()
 
 
+const space_for_trend = carouselSection.querySelector('.spaceForRated')
+async function renderTopRated(index_for_rated,step_for_rated){
+  function formatRuntime(minutes) {
+    const hours = Math.floor(minutes / 60)
+    const mins = minutes % 60
 
+    return `${hours}h ${mins}m`
+}
 
+const getRated = ratedMovies.results
 
+const rated_with_details = await Promise.all(
+  getRated.map(async(m) =>{
+    const details = await getMovieDetails(m.id)
+    return{
+      ...m,
+      runtime: details.runtime
+    }
+  })
+)
+
+function formatStars(rate){
+  const newRate = Math.round(rate / 2)
+  const fullStars = newRate
+  const emptyStars = 5 - fullStars
+  return '★'.repeat(fullStars) + '☆'.repeat(emptyStars)
+}
+
+  const htmlForRated = rated_with_details
+  .slice(index_for_rated,index_for_rated + step_for_rated)
+  .map(m =>{
+    return `
+    <div class='ratedWrapper'>
+      <div class='ratedImg'><img src='${IMG_BASE + m.poster_path}'/></div>
+          <div class='ratedInfo'>
+            <div class='trendingTime'>
+              <img src='./assets/icons/Subtract.svg'/>
+              <p>${formatRuntime(m.runtime)}</p>
+            </div>
+            <div>
+              <div class='ratedStars'>
+                <p>${formatStars(m.vote_average)}
+                <span>${Math.round(m.vote_count / 1000)}K</span>
+                </p>
+                
+              </div>
+            </div>
+        </div>
+    </div>
+      
+    `
+  }).join('')
+
+  space_for_trend.innerHTML = htmlForRated
+}
+const prevBtnRated = carouselSection.querySelector('.prevForRated')
+const nextBtnRated = carouselSection.querySelector('.nextForRated')
+renderTopRated(index_for_rated,step_for_rated)
+
+prevBtnRated.addEventListener('click', () => {
+  index_for_rated = Math.max(0, index_for_rated - step_for_rated)
+  renderTopRated(index_for_rated, step_for_rated)
+})
+nextBtnRated.addEventListener('click', () => {
+  index_for_rated = Math.min(upcomingData.results.length - step_for_rated, index_for_rated + step_for_rated)
+  renderTopRated(index_for_rated, step_for_rated)
+})
 
 return page;
 }

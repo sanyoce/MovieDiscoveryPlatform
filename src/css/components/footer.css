@@ -63,7 +63,10 @@ footer{
 
 
 @media(max-width:1440px){
-    /*  */
+    footer{
+        padding: 80px 80px 40px 80px;
+    }
+
 }
 
 @media(max-width:390px){

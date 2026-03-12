@@ -10,6 +10,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    border-radius: 12px;
 }
 
 .movieBannerName{
@@ -31,7 +32,22 @@
     gap: 20px;
 }
 
-.movieBannerBtns button:nth-child(1){
+.movie_banner_bnt_wrapper{
+    display: flex;
+    gap: 20px;
+}
+
+.movie_banner_bnt_wrapper button:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 47px;
+    background-color: #0F0F0F;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.redBtn{
     display: flex;
     background-color: red;
     padding: 0px 24px 0px 24px;
@@ -102,10 +118,11 @@
 }
 
 .carouselSection{
-    padding-top: 180px;
+    padding-top: 0px;
 }
 
 .carouselSectionWrapper{
+    margin-top: 162px;
     padding: 50px;
     border: 1px solid #262626;
     border-radius: 12px;
@@ -319,6 +336,7 @@
 .spaceForReleases{
     display: flex;
     gap: 20px;
+    
 }
 
 .releasessWrapper{
@@ -334,6 +352,9 @@
 
 .releasessWrapper img{
     border-radius: 8px;
+    object-fit: cover;
+    width: 100%;
+    object-position: 20%;
 }
 
 .releasessWrapper p{
@@ -350,8 +371,93 @@
     line-height: 150%;
 }
 
+.movieShowBtn{
+    display: none;
+}
+
+.mustMovies{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.ratedHeader{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.ratedHeader p {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.prevForRated{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.nextForRated{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.spaceForRated{
+    display: flex;
+    gap: 20px;
+}
+
+.ratedWrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #1A1A1A;
+    border-radius: 12px;
+    border: 1px solid #262626;
+    gap: 20px;
+}
+
+.trendingTime{
+    padding: 6px 10px 6px 6px;
+}
+
+.ratedInfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ratedImg img{
+    border-radius: 8px;
+}
+
+.ratedStars p{
+    font-size: 30px;
+    padding: 6px 10px;
+    margin: 0px;
+    color: red;
+    background-color: #141414;
+    border-radius: 51px;
+    border: 1px solid #262626;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ratedStars p span{
+    color: #999999;
+    font-size: 14px;
+}
 
 @media(max-width: 1440px){
+    .movieAndShowPage{
+        padding: 50px 80px 150px 80px;
+    }
+
     .movieBannerBackground{
         height: 709px;
     }
@@ -360,6 +466,64 @@
     color: white;
     font-size: 27px;
     margin: 0px;
+    }
+
+    .carouselSectionWrapper{
+        padding: 30px;
+    }
+
+    .spaceForGenres img{
+        width: 20px;
+    }
+
+    .topTenInfo p:nth-child(1){
+        padding: 5px;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        width: 66px;
+    }
+
+    .trendingTime img{
+        width: 18px;
+    }
+
+    .trendingTime p{
+        font-size: 12px;
+    }
+
+    .trendingWatches img{
+        width: 18px;
+    }
+
+    .trendingWatches p{
+        font-size: 12px;
+    }
+
+    .releasessWrapper{
+    padding: 16px;
+    background-color: #1A1A1A;
+    border: 1px solid #262626;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    }
+
+    .releasessWrapper p{
+    margin: 0px;
+    text-wrap: nowrap;
+    font-weight: 500;
+    font-size: 12px;
+    }
+
+    .ratedStars p{
+        font-size: 18px;
+    }
+
+    .ratedStars p span{
+        font-size: 10px;
     }
 }
 
@@ -372,5 +536,248 @@
     display: none;
     }   
 
+    .carouselSectionWrapper{
+        padding: 16px;
+        margin-top: -20px;
+        margin-bottom: 50px;
+    }
 
+    .movieBannerName{
+        font-size: 20px;
+        font-weight: 700;
+        font-style: bold;
+        text-align: center;
+    }
+
+    .movieBannerBtns{
+        width: 80%;
+        padding: 0px 20px 0px 20px;
+    }
+
+    .redBtn{
+        width: 100%;
+        justify-content: center;
+    }
+
+    .movie_banner_bnt_wrapper{
+        justify-content: center;
+    }
+
+    .movieBannerBtns{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .movieBannerBtns button:nth-child(1){
+        padding: 8px;
+    }
+
+    .movieBannerBtns button:nth-child(1) img{
+        width: 20px;
+    }
+    .movieBannerBtns button:nth-child(2) img{
+        width: 20px;
+    }
+    .movieBannerBtns button:nth-child(3) img{
+        width: 20px;
+    }
+
+    .nextBtn{
+        padding: 10px;
+    }
+
+    .prevBtn{
+        padding: 10px;
+    }
+
+    .movieShowBtn{
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+        gap: 10px;
+        border: 1px solid #262626;
+        border-radius: 8px;
+        background-color: #0F0F0F;
+        margin: 80px 8px 50px 8px;
+    }
+
+    .movieBtn{
+        padding: 12px 62px 12px 62px;
+        background-color: #0F0F0F;
+        color: white;
+        border: 0px;
+        border-radius: 8px;
+    }
+
+    .showBtn{
+        padding: 12px 62px 12px 62px;
+        background-color: #0F0F0F;
+        color: white;
+        border: 0px;
+        border-radius: 8px;
+    }
+
+    .carouselSectionWrapper{
+        border: 0px;
+    }
+
+    .borderElem{
+        display: none;
+    }
+
+    .homeCarouselHeaderText{
+        font-size: 10px;
+    }
+
+    .homeCarouselHeaderBtns{
+        padding: 6px;
+    }
+
+    .ourGenres{
+        gap: 20px;
+    }
+
+    .left{
+        padding: 4px;
+    }
+
+    .right{
+        padding: 4px;
+    }
+
+    .homeCarouselCardBlock{
+        padding: 20px;
+    }
+
+    .spaceForGenres{
+        padding-top: 20px;
+    }
+
+    .spaceForGenres p{
+        margin: 0px;
+        font-size: 14px;
+    }
+
+    .spaceForGenres img{
+        width: 20px;
+    }
+
+    .spaceForPosters{
+        gap: 5px;
+    }
+
+    .popularTopTen{
+        gap: 20px;
+    }
+
+    .popularHeader p{
+        font-size: 18px;
+    }
+
+    .prevForPopular{
+        padding: 4px;
+    }
+
+    .nextForPopular{
+        padding: 4px;
+    }
+
+    .posterForPopular{
+        gap: 5px;
+    }
+
+    .trendingNow{
+        gap: 20px;
+    }
+
+    .trendingNowHeader p{
+        font-size: 20px;
+    }
+
+    .prevForTrending{
+        padding: 4px;
+    }
+
+    .nextForTrending{
+        padding: 4px;
+    }
+
+    .trendingWrapper{
+        padding: 12px;
+    }
+
+    .trendingWatches img{
+        width: 14px;
+    }
+
+    .trendingWatches p{
+        font-size: 10px;
+    }
+
+    .newReleases{
+        gap: 20px;
+    }
+
+    .releasesHeaderInfo p{
+        font-size: 20px;
+    }
+
+    .prevForReleases{
+        padding: 4px;
+    }
+
+    .nextForReleases{
+        padding: 4px;
+    }
+
+    .spaceForReleases{
+        gap: 16px;
+    }
+
+    .releasessWrapper{
+        padding: 12px;
+    }
+    .releasessWrapper p{
+    margin: 0px;
+    text-wrap: nowrap;
+    font-weight: 500;
+    font-size: 8px;
+    }
+
+    .btnActive{
+        background-color: #1F1F1F;
+    }
+
+    .ratedHeader p{
+        font-size: 18px;
+    }
+
+    .prevForRated{
+        padding: 4px;
+    }
+
+    .nextForRated{
+        padding: 4px; 
+    }
+
+    .ratedWrapper{
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .trendingTime img{
+        width: 12px;
+    }
+
+    .trendingTime p{
+        font-size: 8px;
+    }
+
+    .ratedStars p{
+        font-size: 10px;
+    }
+
+    .ratedStars p span{
+        font-size: 8px;
+    }
 }
