@@ -244,6 +244,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    justify-content: space-between;
 }
 
 .moviePostersTrending{
@@ -420,6 +421,7 @@
     border-radius: 12px;
     border: 1px solid #262626;
     gap: 20px;
+    justify-content: space-between ;
 }
 
 .trendingTime{
@@ -451,6 +453,37 @@
 .ratedStars p span{
     color: #999999;
     font-size: 14px;
+}
+
+.genresHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.genresHeader p{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.SprevForGenres{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.SnextForGenres{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+
+.showGenresSpace{
+    display: flex;
+    gap: 20px;
 }
 
 @media(max-width: 1440px){

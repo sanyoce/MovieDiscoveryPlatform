@@ -37,13 +37,6 @@ export async function getPoster(pageNum) {
   })
 }
 
-export async function getPopular() {
-    return request('/movie/popular', {
-      language: 'en-US',
-      page: 1,
-  })
-}
-
 export async function getMovieDetails(id) {
   return request(`/movie/${id}`, {
     language: 'en-US'
@@ -58,6 +51,41 @@ export async function getUpcoming() {
 
 export async function getRated() {
   return request('/movie/top_rated',{
+    language: 'en-US'
+  })
+}
+
+
+
+export async function getShowGenres(){
+  return request('/genre/tv/list', {
+    language: 'en-US',
+    page: 1,
+  }) 
+}
+
+
+export async function getShowPopular(pageNum) {
+    return request('/tv/popular', {
+      language: 'en-US',
+      page: pageNum,
+  })
+}
+
+export async function getShowDetails(id) {
+  return request(`/tv/${id}`, {
+    language: 'en-US'
+  })
+}
+
+export async function getUpcomingShow() {
+  return request('/tv/airing_today',{
+    language: 'en-US'
+  })
+}
+
+export async function getRatedShow() {
+  return request('/tv/top_rated',{
     language: 'en-US'
   })
 }
