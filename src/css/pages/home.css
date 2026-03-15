@@ -412,9 +412,25 @@
         padding-left: 20px;
     }
 
-    .homePage div:nth-child(1) img{
-        width: 200px;
-        height: 200px;
+    .homeCarouselSection{
+        padding: 0px;
+    }
+
+    .left{
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .right{
+        width: 40px;
+        display: flex;
+        justify-content: center;   
+    }
+
+    .spaceForGenres img{
+        width: 10px;
     }
 
     .homeAbout h1{
@@ -434,10 +450,6 @@
         line-height: 150%;
         letter-spacing: 0;
     }
-
-
-
-
 
     .deviceSectionInfo h2{
     font-size: 20px;
@@ -482,8 +494,6 @@
     background-color: #141414;
     border-radius: 8px;
     }
-
-
 
     .homeQuestionBlock{
         padding: 0px;

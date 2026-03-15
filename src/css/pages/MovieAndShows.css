@@ -486,6 +486,74 @@
     gap: 20px;
 }
 
+.SprevForPopular{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.SnextForPopular{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.SprevForTrending{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.SnextForTrending{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.SprevForReleases{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.SnextForReleases{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.SprevForRated{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.SnextForRated{
+    background-color: #1A1A1A;
+    padding: 14px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.carouselSectionWrapperShow{
+    margin-top: 162px;
+    padding: 50px;
+    border: 1px solid #262626;
+    border-radius: 12px;
+    position: relative;
+}
+
+.hideThis{
+    display: block;
+}
+
 @media(max-width: 1440px){
     .movieAndShowPage{
         padding: 50px 80px 150px 80px;
@@ -502,6 +570,10 @@
     }
 
     .carouselSectionWrapper{
+        padding: 30px;
+    }
+
+    .carouselSectionWrapperShow{
         padding: 30px;
     }
 
@@ -560,16 +632,18 @@
     }
 }
 
-@media(max-width: 390px){
+@media(max-width: 500px){
     .movieAndShowPage{
     padding: 50px 0px 0px 16px;
     }
 
-    .movieBannerDescription{
-    display: none;
-    }   
-
     .carouselSectionWrapper{
+        padding: 16px;
+        margin-top: -20px;
+        margin-bottom: 50px;
+    }
+
+    .carouselSectionWrapperShow{
         padding: 16px;
         margin-top: -20px;
         margin-bottom: 50px;
@@ -688,7 +762,7 @@
 
     .spaceForGenres p{
         margin: 0px;
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .spaceForGenres img{
@@ -704,7 +778,7 @@
     }
 
     .popularHeader p{
-        font-size: 18px;
+        font-size: 15px;
     }
 
     .prevForPopular{
@@ -724,7 +798,7 @@
     }
 
     .trendingNowHeader p{
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .prevForTrending{
@@ -752,7 +826,7 @@
     }
 
     .releasesHeaderInfo p{
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .prevForReleases{
@@ -782,7 +856,7 @@
     }
 
     .ratedHeader p{
-        font-size: 18px;
+        font-size: 15px;
     }
 
     .prevForRated{
@@ -812,5 +886,77 @@
 
     .ratedStars p span{
         font-size: 8px;
+    }
+
+    .genresHeader p{
+        font-size: 15px;
+    }
+
+    .popularHeader p{
+        font-size: 15px;
+    }
+
+    .trendingNowHeader p{
+        font-size: 15px;
+    }
+
+    .releasesHeaderInfo p{
+        font-size: 15px;
+    }
+
+    .ratedHeader p{
+        font-size: 15px;
+    }
+
+    .SprevForGenres{
+        padding: 4px;
+    }
+
+    .SnextForGenres{
+        padding: 4px;
+    }
+
+    .SprevForPopular{
+        padding: 4px;
+    }
+
+    .SnextForPopular{
+        padding: 4px;
+    }
+
+    .SprevForTrending{
+        padding: 4px;
+    }
+
+    .SnextForTrending{
+        padding: 4px;
+    }
+
+    .SprevForReleases{
+        padding: 4px;
+    }
+
+    .SnextForReleases{
+        padding: 4px;
+    }
+
+    .SprevForRated{
+        padding: 4px;
+    }
+
+    .SnextForRated{
+        padding: 4px;
+    }
+
+    .spaceForRated{
+        gap: 8px;
+    }
+
+    .popularTopTenSpace{
+        gap: 20px;
+    }
+
+    .hideThis{
+        display: none;
     }
 }

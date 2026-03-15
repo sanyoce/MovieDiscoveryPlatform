@@ -46,9 +46,14 @@ export async function homePage() {
     `
     main.append(homeCarousel)
     const spaceForCarousel = homeCarousel.querySelector('.spaceForHomeCarousel')
-
+     function pageSize() {
+    if (window.innerWidth <= 500) {
+      return 2;
+    }
+    return 4;
+    }
     let startIndexForHomeCarousel = 0
-    const stepForHomeCarousel = 4
+    const stepForHomeCarousel = pageSize()
 
     function renderHomeCarousel(startIndex,step){
         const htmlForHomeCarousel = genre.genres
