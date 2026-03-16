@@ -506,5 +506,16 @@ export async function homePage() {
         ".subscribePlan4Year",
     );
 
+    costSwitchBtns.addEventListener(('click'), ()=>{
+        monthYearlyCostBtn1.classList.toggle('subscribeBtnActive')
+        howMuch4Month.forEach((elem)=>{
+            elem.classList.toggle('whoIsHidden')
+        })
+        monthYearlyCostBtn2.classList.toggle('subscribeBtnActive')
+        howMuch4Year.forEach((elem)=>{
+            elem.classList.toggle('whoIsHidden')   
+        }) 
+    })
+
     return main;
 }

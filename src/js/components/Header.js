@@ -20,7 +20,7 @@ export function Header(){
 
             <div class = 'buttonSearch'>
                 <a href="#/search" class='returnSearch'><img src='./assets/icons/Vector.svg' alt="#"/></a>
-                <a href="#/home" class='returnMain hideThis'><img src='./assets/icons/Vector (Stroke).svg'/></a>
+                <a href="#/home" class='returnMain hideThisElem'><img src='./assets/icons/Vector (Stroke).svg'/></a>
             </div>
 
             <div class = 'buttonNotification'>
@@ -71,12 +71,12 @@ document.addEventListener('DOMContentLoaded', () =>{
     const homePage = document.querySelector('.returnMain')
 
     searchPage.addEventListener(('click'), () =>{
-        searchPage.classList.toggle('hideThis')
-        homePage.classList.toggle('hideThis')
+        searchPage.classList.toggle('hideThisElem')
+        homePage.classList.toggle('hideThisElem')
     })
     homePage.addEventListener(('click'), () =>{
-        homePage.classList.toggle('hideThis')
-        searchPage.classList.toggle('hideThis')
+        homePage.classList.toggle('hideThisElem')
+        searchPage.classList.toggle('hideThisElem')
     })
 })
 

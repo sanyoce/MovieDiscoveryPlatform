@@ -123,7 +123,7 @@
 }
 
 .deviceSectionBlock{
-    padding: 150px 162px 150px 161px;
+    padding: 50px 162px 150px 161px;
     display: flex;
     flex-direction: column;
     gap: 80px;
@@ -145,9 +145,16 @@
     display: flex;
     flex-direction: column;
     padding: 50px;
-    background-color: #0F0F0F;
-    gap: 30px;
+    background:
+    radial-gradient(
+      ellipse at top right,
+      rgba(255,0,0,0.10),
+      transparent 50%
+    ),
+    #141414;
+    gap: 15px;
     border-radius: 12px;
+    border: 1px solid #262626;
 }
 
 .deviceSectionCards{
@@ -215,6 +222,7 @@
     padding: 18px 24px;
     background-color: red;
     border-radius: 8px;
+    text-wrap: nowrap;
 }
 
 .homeQuestions{
@@ -230,8 +238,27 @@
     gap: 20px;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0px 0px 0px;
-    /* border-bottom: 1px solid red; */
+    padding: 15px 0px 15px 0px;
+}
+
+.homeQuestionWrapper::after{
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    red 40%,
+    transparent 100%
+  );
+}
+
+.homeQuestion:nth-last-child(-n+2) .homeQuestionWrapper::after{
+  content: none;
 }
 
 .homeQuestionNumber{
@@ -402,8 +429,51 @@
 }
 
 @media(max-width:1440px){
+    .homeCarouselSection{
+        padding: 100px 80px 50px 80px;
+    }
+
     .homeCarouselHeaderBtns{
         padding: 12px;
+    }
+
+    .deviceSectionBlock{
+        padding: 100px 80px;
+    }
+
+    .deviceSectionCard{
+        padding: 40px;
+    }
+
+    .homeQuestionBlock{
+        padding: 0px 80px 0px 80px;
+    }
+
+    .subscribePlan{
+        padding: 150px 80px;
+    }
+
+    .subscribePlanCardBtns div:nth-child(1){
+        text-wrap: nowrap;
+        padding: 0 20px;
+    }
+
+    .subscribePlanCardBtns div:nth-child(2){
+        text-wrap: nowrap;
+        padding: 0 10px;
+    }
+
+    .subscribePlanCard{
+        gap: 20px;
+        padding: 30px;
+    }
+
+    .subscribePlan4Month p:nth-child(1){
+        font-size: 30px;
+    }
+
+    .subscribePlan4Year p:nth-child(1){
+        font-size: 30px;
     }
 }
 
@@ -412,8 +482,14 @@
         padding-left: 20px;
     }
 
+    .homeImg img{
+        width: 200px;
+    }
+
     .homeCarouselSection{
         padding: 0px;
+        padding-top:80px ;
+        gap: 20px;
     }
 
     .left{
@@ -468,7 +544,7 @@
 
     .deviceSectionBlock{
     padding: 0;
-    gap: 64px;
+    gap: 20px;
     padding-top: 100px;
     }
 
@@ -498,6 +574,7 @@
     .homeQuestionBlock{
         padding: 0px;
         padding-top: 100px;
+        gap: 40px;
     }
 
     .homeQuestionHeader{
@@ -521,11 +598,22 @@
         display: none;
     }
 
+    .homeQuestionTxt{
+        font-size: 16px;
+    }
 
+    .homeQuestionNumber p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 2px;
+        margin: 0px
+    }
 
 
     .subscribePlan{
         padding: 100px 0px 100px 0px;
+        gap: 60px;
     }
 
     .subscribePlanHeader{
@@ -547,6 +635,10 @@
         gap: 20px;
     }
 
+    .subscribePlanCardBtns{
+        gap: 0px;
+    }
+
     .subscribePlanCardBtns div:nth-child(1){
         padding: 0px 10px;
     }
@@ -556,6 +648,6 @@
     }
 
     .subscribePlanCardBtns div:nth-child(2){
-        padding: 0px 32px;
+        padding: 0px 10px;
     }
 }
