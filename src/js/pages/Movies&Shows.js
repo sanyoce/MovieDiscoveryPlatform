@@ -294,12 +294,12 @@ export async function MoviesShowsPage() {
     );
 
     const trendingNowSection =
-      carouselSection.querySelector(".spaceForTrending");
+    carouselSection.querySelector(".spaceForTrending");
     trendingNowSection.innerHTML = movies_with_details
       .slice(start_index_trending, step_trending + start_index_trending)
       .map((elem) => {
         return `
-          <div class ='trendingWrapper'>
+          <div class ='trendingWrapper' data-id='${elem.id}'>
               <img  class='moviePostersTrending' src='${IMG_BASE + elem.poster_path}'/>
               <div class='trendingCardInfo'>
                 <div class='trendingTime'>
@@ -334,6 +334,16 @@ export async function MoviesShowsPage() {
     );
     trendingNow(start_index_trending, step_trending);
   });
+  
+  const link_trending_film = carouselSection.querySelector('.spaceForTrending')
+  link_trending_film.addEventListener(('click'), (e)=>{
+    const card = e.target.closest('.trendingWrapper')
+    if(!card) return
+    const id = card.dataset.id
+    location.hash = `#/singleFilm/${id}`
+  })
+
+
 
   let index_for_releases = 0;
   let step_for_releases = getTrending();
