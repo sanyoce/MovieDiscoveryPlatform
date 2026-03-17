@@ -1,6 +1,6 @@
 .singlePageFilm{
     padding: 0px 161px 0px 162px;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 100px;
 }
 
@@ -75,4 +75,36 @@
 
 .single_movie_otherBtns div:nth-child(1){
     padding: 14px 18px;
+}
+
+.movie_info_content_head{
+    display: flex;
+    gap: 5px;
+}
+
+.movielanguages{
+    display: flex;
+    gap: 5px;
+}
+
+.movielanguages p{
+    padding: 8px 14px;
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.movieRatings{
+    display: flex;
+    gap: 20px;
+}
+
+.movie_stars{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.movie_stars span{
+    color: white;
 }
