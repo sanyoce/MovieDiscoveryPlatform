@@ -89,3 +89,15 @@ export async function getRatedShow() {
     language: 'en-US'
   })
 }
+
+export async function getCredits(id) {
+  return request(`/movie/${id}/credits`, {
+    language: 'en-US'
+  })
+}
+
+export async function getReviews(id) {
+  return request(`/movie/${id}/reviews`, {
+    language: 'en-US'
+  })
+}

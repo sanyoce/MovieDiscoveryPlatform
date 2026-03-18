@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    border-radius: 12px;
 }
 
 .single_movie_banner_info{
@@ -39,6 +40,19 @@
     color: #999999;
     font-size: 18px;
     font-weight: 400;
+}
+
+.movie_description{
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    gap: 20px;
+    padding-top: 100px;
+}
+
+.descrip_cast_reviews{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .single_movie_btns{
@@ -77,6 +91,14 @@
     padding: 14px 18px;
 }
 
+.movie_info{
+    padding: 50px;
+    background-color: #1A1A1A;
+    border: 1px solid #262626;
+    border-radius: 12px;
+    align-self: start;
+}
+
 .movie_info_content_head{
     display: flex;
     gap: 5px;
@@ -107,4 +129,181 @@
 
 .movie_stars span{
     color: white;
+}
+
+.movie_gernes{
+    display: flex;
+    gap: 10px;
+    
+}
+
+.movie_gernes p{
+    padding: 8px 14px;
+    font-size: 18px;
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.movieDirector{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px;
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 8px;
+}
+
+.directorProfile img{
+    width: 60px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.descrip_wrapper{
+    padding: 50px;
+    background-color: #1A1A1A;
+    border: 1px solid #262626;
+    border-radius: 12px;
+}
+
+.descrip_wrapper p:nth-child(1){
+    color: #999999;
+}
+
+.cast_carousel_wrapper{
+    padding: 50px;
+    background-color: #1A1A1A;
+    border: 1px solid #262626;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cast_carousel_header{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.cast_carousel_header p{
+    color: #999999;
+}
+
+.cast_carousel_header div button{
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 100px;
+    padding: 14px;
+}
+
+.reviews_carousel_wrapper{
+    padding: 50px;
+    background-color: #1A1A1A;
+    border: 1px solid #262626;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.reviews_carousel_header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviews_carousel_buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.reviews_carousel_header button{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 8px;
+    }
+
+.reviews_carousel_buttons button{
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 100px;
+    padding: 14px;
+}
+
+.cast_carousel_space{
+    display: flex;
+    gap: 20px;
+}
+
+.castImg img{
+    width: fit-content;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.reviews_carousel_space{
+    display: grid;
+    grid-template-columns: 1fr 1fr  ;
+    gap: 20px;
+}
+
+.reviewWrapper{
+    padding: 40px;
+    background-color: #0F0F0F;
+    border: 2px solid #262626;
+    border-radius: 12px;
+}
+
+.reviewer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+.reviewer p{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.reviewer div{
+    color: red;
+}
+
+.reviewContent p{
+    font-size: 16px;
+    color: #999999;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.movie_stars p{
+    margin: 0px;
+    color: red;
+}
+
+.rate{
+    padding: 16px;
+    background-color: #0F0F0F;
+    border: 2px solid #262626;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rate p{
+    margin: 0px;
+}
+
+.movie_info_content_head p{
+    color: #999999;
 }
