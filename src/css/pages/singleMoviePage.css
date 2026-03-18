@@ -44,9 +44,29 @@
 
 .movie_description{
     display: grid;
-    grid-template-columns: 7fr 3fr;
+    grid-template-areas: 
+    "first second"
+    "third second"
+    "fourth second"
+    ;
     gap: 20px;
     padding-top: 100px;
+}
+
+.descrip_wrapper{
+        grid-area: first;
+    }
+
+.movie_info{
+    grid-area: second;
+}
+
+.cast_carousel_wrapper{
+    grid-area: third;
+}
+
+.reviews_carousel_wrapper{
+       grid-area: fourth;
 }
 
 .descrip_cast_reviews{
@@ -306,4 +326,77 @@
 
 .movie_info_content_head p{
     color: #999999;
+}
+
+@media(max-width: 500px){
+    .singlePageFilm{
+        padding: 0px 16px;
+    }
+
+    .single_movie_banner_text p{
+        display: none;
+    }
+
+    .single_movie_btns{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .single_movie_playBtn{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .movie_description{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "first"
+        "second"
+        "third"
+        "fourth"
+        ;
+    }
+
+    .descrip_wrapper{
+        grid-area: first;
+    }
+
+    .movie_info{
+        grid-area: second;
+    }
+
+    .cast_carousel_wrapper{
+        grid-area: third;
+    }
+
+    .reviews_carousel_wrapper{
+        grid-area: fourth;
+    }
+
+    .reviews_carousel_space{
+        display: flex;
+    }
+
+    .descrip_wrapper{
+        padding: 24px;
+    }
+
+    .cast_carousel_wrapper{
+        padding: 24px;
+    }
+
+    .reviews_carousel_wrapper{
+        padding: 24px;
+    }
+
+    .movie_info{
+        padding: 24px;
+    }
+
+    .reviewWrapper{
+        padding: 24px;
+    }
 }

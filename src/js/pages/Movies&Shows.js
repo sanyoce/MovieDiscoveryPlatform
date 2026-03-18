@@ -210,7 +210,7 @@ export async function MoviesShowsPage() {
     ".popularTopTenSpace",
   );
   function getPopular() {
-    if (window.innerWidth <= 500) {
+    if (window.innerWidth <= 600) {
       return 2;
     }
     return 4;

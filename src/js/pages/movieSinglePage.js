@@ -3,6 +3,12 @@ import{getPoster, getMovieDetails,getCredits,getReviews} from "../api/tmdb.js";
 export async function singleFilmP(id){
     const IMG_BASE = "https://image.tmdb.org/t/p/w780";
 
+    function adaptiveCast(){
+        if(window.innerWidth <= 600){
+            return 4
+        }return 8
+    }
+
     function formatRuntime(minutes) {
       const hours = Math.floor(minutes / 60);
       const mins = minutes % 60;
@@ -62,7 +68,6 @@ export async function singleFilmP(id){
     container.innerHTML=`
         <div class='movie_info_banner'></div>
         <div class='movie_description'>
-            <div class='descrip_cast_reviews'>
                 <div class='descrip_wrapper'>
                     <p>Description</p>
                     <p>${movie.overview}</p>
@@ -77,6 +82,7 @@ export async function singleFilmP(id){
                     </div>
                     <div class='cast_carousel_space'></div>
                 </div>
+
                 <div class='reviews_carousel_wrapper'>
                     <div class='reviews_carousel_header'>
                         <p>Reviews</p>
@@ -91,7 +97,7 @@ export async function singleFilmP(id){
                         <button class='reviewNext'><img src='assets/icons/Vector 619.svg'/></button>
                     </div>
                 </div>
-            </div>
+            
             <div class='movie_info'>
                 <div class='movie_info_content'>
                     <div class='movie_info_content_head'>
@@ -181,7 +187,7 @@ export async function singleFilmP(id){
     const space_for_reviews_carousel = container.querySelector('.reviews_carousel_space')
 
     let index_for_cast = 0
-    let step_for_cast = 8
+    let step_for_cast = adaptiveCast()
 
     function renderCast(index_for_cast, step_for_cast){
         space_for_cast_carousel.innerHTML = movieCast.cast
@@ -212,9 +218,14 @@ export async function singleFilmP(id){
     renderCast(index_for_cast, step_for_cast);
     });
 
+    function adaptiveReviews(){
+        if(window.innerWidth <= 600){
+            return 1
+        }return 2
+    }
 
     let index_for_review = 0
-    let step_for_review = 2
+    let step_for_review = adaptiveReviews()
     function renderReviews(index,step){
         space_for_reviews_carousel.innerHTML = movieReviews.results
         .slice(index,index + step)
