@@ -293,8 +293,7 @@ export async function MoviesShowsPage() {
       }),
     );
 
-    const trendingNowSection =
-    carouselSection.querySelector(".spaceForTrending");
+    const trendingNowSection = carouselSection.querySelector(".spaceForTrending");
     trendingNowSection.innerHTML = movies_with_details
       .slice(start_index_trending, step_trending + start_index_trending)
       .map((elem) => {
@@ -363,7 +362,7 @@ export async function MoviesShowsPage() {
       .slice(index, step + index)
       .map((elem) => {
         return `
-          <div class='releasessWrapper'>
+          <div class='releasessWrapper' data-id='${elem.id}'>
             <img src='${IMG_BASE + elem.poster_path}'/>
             <p>Released at ${formatReleaseDate(elem.release_date)}</p>
           </div>
@@ -386,6 +385,14 @@ export async function MoviesShowsPage() {
     );
     releasesCarousel(index_for_releases, step_for_releases);
   });
+
+  const link_new_releases_film = carouselSection.querySelector('.spaceForReleases')
+  link_new_releases_film.addEventListener(('click'), (e)=>{
+    const card = e.target.closest('.releasessWrapper')
+    if(!card)return
+    const id = card.dataset.id
+    location.hash = `#/singleFilm/${id}`
+  })
 
   let index_for_rated = 0;
   let step_for_rated = getPopular();
@@ -417,14 +424,14 @@ export async function MoviesShowsPage() {
       const newRate = Math.round(rate / 2);
       const fullStars = newRate;
       const emptyStars = 5 - fullStars;
-      return "★".repeat(fullStars) + "☆".repeat(emptyStars);
+      return "<img src='assets/icons/Shape.svg'/>".repeat(fullStars) + "<img src='assets/icons/Shape (1).svg'/>".repeat(emptyStars);
     }
 
     space_for_trend.innerHTML = rated_with_details
       .slice(index_for_rated, index_for_rated + step_for_rated)
       .map((m) => {
         return `
-          <div class='ratedWrapper'>
+          <div class='ratedWrapper' data-id='${m.id}'>
             <div class='ratedImg'><img src='${IMG_BASE + m.poster_path}'/></div>
                 <div class='ratedInfo'>
                   <div class='trendingTime'>
@@ -461,6 +468,14 @@ export async function MoviesShowsPage() {
     );
     renderTopRated(index_for_rated, step_for_rated);
   });
+
+  const link_must_film = carouselSection.querySelector('.spaceForRated')
+  link_must_film.addEventListener(('click'), (e)=>{
+    const card = e.target.closest('.ratedWrapper')
+    if(!card)return
+    const id = card.dataset.id
+    location.hash = `#/singleFilm/${id}`
+  })
 
   const showCarouselSection = document.createElement("div");
   showCarouselSection.classList.add("showSection");
@@ -762,7 +777,7 @@ export async function MoviesShowsPage() {
       const newRate = Math.round(rate / 2);
       const fullStars = newRate;
       const emptyStars = 5 - fullStars;
-      return "★".repeat(fullStars) + "☆".repeat(emptyStars);
+      return "<img src='assets/icons/Shape.svg'/>".repeat(fullStars) + "<img src='assets/icons/Shape (1).svg'/>".repeat(emptyStars);
     }
 
     fifthShowC.innerHTML = rated_show_with_details
@@ -815,11 +830,18 @@ console.log(showBtn)
 console.log(movieBlock)
 console.log(showBlock)
 
-movieShowBtn.addEventListener(('click'),() =>{
-  movieBtn.classList.toggle('btnActive')
-  movieBlock.classList.toggle('hideThis')
-  showBtn.classList.toggle('btnActive')
-  showBlock.classList.toggle('hideThis')
+movieShowBtn.addEventListener(('click'),(e) =>{
+  if(e.target.closest('.movieBtn')){
+    movieBtn.classList.add('btnActive')
+    showBtn.classList.remove('btnActive')
+    movieBlock.classList.remove('hideThis')
+    showBlock.classList.add('hideThis')
+  }else{
+    movieBtn.classList.remove('btnActive')
+    showBtn.classList.add('btnActive')
+    movieBlock.classList.add('hideThis')
+    showBlock.classList.remove('hideThis')
+  }
 })
 
 

@@ -646,6 +646,7 @@
         padding: 16px;
         margin-top: -20px;
         margin-bottom: 50px;
+        border: none;
     }
 
     .movieBannerName{
@@ -697,8 +698,7 @@
     }
 
     .movieShowBtn{
-        display: flex;
-        justify-content: space-between;
+        display: block;
         padding: 8px;
         gap: 10px;
         border: 1px solid #262626;
@@ -707,7 +707,13 @@
         margin: 80px 8px 50px 8px;
     }
 
+    .movieShowBtnWrapper{
+        display: flex;
+        justify-content: space-between;
+    }
+
     .movieBtn{
+        width: 50%;
         padding: 12px 62px 12px 62px;
         background-color: #0F0F0F;
         color: white;
@@ -716,6 +722,7 @@
     }
 
     .showBtn{
+        width: 50%;
         padding: 12px 62px 12px 62px;
         background-color: #0F0F0F;
         color: white;
@@ -745,15 +752,18 @@
 
     .left{
         padding: 4px;
+        width: fit-content;
     }
 
     .right{
         padding: 4px;
+        width: fit-content;
     }
 
     .homeCarouselCardBlock{
         padding: 20px;
     }
+
 
     .spaceForGenres{
         padding-top: 20px;
@@ -888,7 +898,7 @@
     }
 
     .genresHeader p{
-        font-size: 15px;
+        font-size: 20px;
     }
 
     .popularHeader p{

@@ -147,6 +147,10 @@
     gap: 4px;
 }
 
+.movie_stars p{
+    display: flex;
+}
+
 .movie_stars span{
     color: white;
 }
@@ -335,6 +339,10 @@
 
     .single_movie_banner_text p{
         display: none;
+    }
+
+    .single_movie_banner_text h1{
+        text-wrap: nowrap;
     }
 
     .single_movie_btns{

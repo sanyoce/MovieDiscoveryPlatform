@@ -204,7 +204,8 @@ export async function homePage() {
 
         <div class = 'homeQuestions'>
 
-            <div class = 'homeQuestion'>
+        <div class='home_questions_first'>
+             <div class = 'homeQuestion'>
                 <div class='homeQuestionWrapper'>
                     <div class = 'homeQuestionNumber'><p>01</p></div>
 
@@ -225,10 +226,10 @@ export async function homePage() {
 
             <div class = 'homeQuestion'>
                 <div class='homeQuestionWrapper'>
-                    <div class = 'homeQuestionNumber'><p>01</p></div>
+                    <div class = 'homeQuestionNumber'><p>02</p></div>
 
                     <div class = 'homeQuestionTxt'>
-                        <p>What is StreamVibe?</p>
+                        <p>How much does StreamVibe cost?</p>
                         
                     </div>
 
@@ -244,10 +245,10 @@ export async function homePage() {
 
             <div class = 'homeQuestion'>
                 <div class='homeQuestionWrapper'>
-                    <div class = 'homeQuestionNumber'><p>01</p></div>
+                    <div class = 'homeQuestionNumber'><p>03</p></div>
 
                     <div class = 'homeQuestionTxt'>
-                        <p>What is StreamVibe?</p>
+                        <p>What content is available on StreamVibe?</p>
                         
                     </div>
 
@@ -263,10 +264,31 @@ export async function homePage() {
 
             <div class = 'homeQuestion'>
                 <div class='homeQuestionWrapper'>
-                    <div class = 'homeQuestionNumber'><p>01</p></div>
+                    <div class = 'homeQuestionNumber'><p>04</p></div>
 
                     <div class = 'homeQuestionTxt'>
-                        <p>What is StreamVibe?</p>
+                        <p>How can I watch StreamVibe?</p>
+                        
+                    </div>
+
+                    <div class = 'homeQuestionTxtBtn'>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>    
+                <div>
+                    <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class='home_questions_second'>
+            <div class = 'homeQuestion'>
+                <div class='homeQuestionWrapper'>
+                    <div class = 'homeQuestionNumber'><p>05</p></div>
+
+                    <div class = 'homeQuestionTxt'>
+                        <p>How do I sign up for StreamVibe?</p>
                         
                     </div>
 
@@ -282,10 +304,10 @@ export async function homePage() {
 
             <div class = 'homeQuestion'>
                 <div class='homeQuestionWrapper'>
-                    <div class = 'homeQuestionNumber'><p>01</p></div>
+                    <div class = 'homeQuestionNumber'><p>06</p></div>
 
                     <div class = 'homeQuestionTxt'>
-                        <p>What is StreamVibe?</p>
+                        <p>What is the StreamVibe free trial?</p>
                         
                     </div>
 
@@ -301,11 +323,10 @@ export async function homePage() {
 
             <div class = 'homeQuestion'>
                 <div class='homeQuestionWrapper'>
-                    <div class = 'homeQuestionNumber'><p>01</p></div>
+                    <div class = 'homeQuestionNumber'><p>07</p></div>
 
                     <div class = 'homeQuestionTxt'>
-                        <p>What is StreamVibe?</p>
-                        
+                        <p>How do I contact StreamVibe customer support?</p>
                     </div>
 
                     <div class = 'homeQuestionTxtBtn'>
@@ -320,28 +341,10 @@ export async function homePage() {
 
             <div class = 'homeQuestion'>
                 <div class='homeQuestionWrapper'>
-                    <div class = 'homeQuestionNumber'><p>01</p></div>
+                    <div class = 'homeQuestionNumber'><p>08</p></div>
 
                     <div class = 'homeQuestionTxt'>
-                        <p>What is StreamVibe?</p>
-                    </div>
-
-                    <div class = 'homeQuestionTxtBtn'>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>    
-                <div>
-                    <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
-                </div>
-            </div>
-
-            <div class = 'homeQuestion'>
-                <div class='homeQuestionWrapper'>
-                    <div class = 'homeQuestionNumber'><p>01</p></div>
-
-                    <div class = 'homeQuestionTxt'>
-                        <p>What is StreamVibe?</p>
+                        <p>What are the StreamVibe payment methods?</p>
                         
                     </div>
 
@@ -354,6 +357,11 @@ export async function homePage() {
                     <p class = 'homeQuestionTxtHidden'>StreamVibe is a streaming service that allows you to watch movies and shows on demand.</p>
                 </div>
             </div>
+        </div>
+
+           
+
+            
 
         </div>
     `;
@@ -399,14 +407,14 @@ export async function homePage() {
             </div>
 
         </div>
-
+ 
         <div class = 'subscribePlanCards'>
 
             <div class = 'subscribePlanCard'>
 
                 <div class = 'subscribePlanCardInfo'>
                     <h2>Basic Plan</h2>
-                    <p>Enjoy an extensive library of movies and shows, featuring a range of content, including recently released titles.</p>
+                    <p>Enjoy an extensive library of movies and shows, featuring a range of content, including recently</p>
                 </div>
 
                 <div class = 'subscribePlanCost'>
@@ -506,15 +514,26 @@ export async function homePage() {
         ".subscribePlan4Year",
     );
 
-    costSwitchBtns.addEventListener(('click'), ()=>{
-        monthYearlyCostBtn1.classList.toggle('subscribeBtnActive')
-        howMuch4Month.forEach((elem)=>{
-            elem.classList.toggle('whoIsHidden')
-        })
-        monthYearlyCostBtn2.classList.toggle('subscribeBtnActive')
-        howMuch4Year.forEach((elem)=>{
-            elem.classList.toggle('whoIsHidden')   
-        }) 
+    costSwitchBtns.addEventListener(('click'), (e)=>{
+        if(e.target.closest('.subscribePlanBtnsOne')){
+            monthYearlyCostBtn2.classList.remove('subscribeBtnActive')
+            monthYearlyCostBtn1.classList.add('subscribeBtnActive')
+            howMuch4Month.forEach((elem)=>{
+            elem.classList.remove('whoIsHidden')
+            })
+            howMuch4Year.forEach((elem)=>{
+            elem.classList.add('whoIsHidden')
+            })
+        }else{
+            monthYearlyCostBtn1.classList.remove('subscribeBtnActive')
+            monthYearlyCostBtn2.classList.add('subscribeBtnActive')
+             howMuch4Year.forEach((elem)=>{
+             elem.classList.remove('whoIsHidden')   
+             }) 
+            howMuch4Month.forEach((elem)=>{
+             elem.classList.add('whoIsHidden')   
+             }) 
+        }
     })
 
     return main;

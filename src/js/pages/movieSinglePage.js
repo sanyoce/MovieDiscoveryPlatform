@@ -38,7 +38,7 @@ export async function singleFilmP(id){
       const newRate = Math.round(rate / 2);
       const fullStars = newRate;
       const emptyStars = 5 - fullStars;
-      return "★".repeat(fullStars) + "☆".repeat(emptyStars);
+      return "<img src='assets/icons/Shape.svg'/>".repeat(fullStars) + "<img src='assets/icons/Shape (1).svg'/>".repeat(emptyStars);
     }
 
     const movie = await getMovieDetails(id)

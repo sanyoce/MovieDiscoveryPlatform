@@ -226,10 +226,25 @@
 }
 
 .homeQuestions{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 40px;
+    display: flex;
+    gap: 80px;
     position: relative;
+}
+
+.home_questions_first{
+    width: 50%;
+}
+
+.home_questions_second{
+    width: 50%;
+}
+
+.home_questions_first div:nth-child(1) .homeQuestionWrapper::after{
+    content: none;
+}
+
+.home_questions_second div:nth-child(1) .homeQuestionWrapper::after{
+    content: none;
 }
 
 .homeQuestionWrapper{
@@ -244,8 +259,8 @@
 .homeQuestionWrapper::after{
   content: "";
   position: absolute;
-  left: 0px;
-  bottom: 0px;
+    top: 0px;
+  right: 0px;
   width: 100%;
   height: 1px;
 
@@ -255,10 +270,6 @@
     red 40%,
     transparent 100%
   );
-}
-
-.homeQuestion:nth-last-child(-n+2) .homeQuestionWrapper::after{
-  content: none;
 }
 
 .homeQuestionNumber{
@@ -271,6 +282,8 @@
     display: flex;
     font-size: 22px;
     justify-self: flex-start;
+    text-wrap: nowrap;
+    margin-right: auto;
 }
 
 .homeQuestionTxtBtn{
@@ -401,7 +414,8 @@
 .subscribePlanCardBtns{
     display: flex;
     gap: 20px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    text-wrap: nowrap;
 }
 
 .subscribePlanCardBtns div:nth-child(1){
@@ -447,6 +461,10 @@
 
     .homeQuestionBlock{
         padding: 0px 80px 0px 80px;
+    }
+
+    .homeQuestionTxt{
+        font-size: 18px;
     }
 
     .subscribePlan{
@@ -574,7 +592,6 @@
     .homeQuestionBlock{
         padding: 0px;
         padding-top: 100px;
-        gap: 40px;
     }
 
     .homeQuestionHeader{
@@ -588,13 +605,22 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
+        gap: 0px;
     }
 
-    .homeQuestions div:nth-child(8){
-        display: none;
+    .home_questions_first{
+        width: 100%;
     }
 
-    .homeQuestions div:nth-child(7){
+    .home_questions_second{
+        width: 100%;
+    }
+
+    .home_questions_second .homeQuestion:nth-child(1) .homeQuestionWrapper::after{
+    content: '';
+    }
+
+    .home_questions_second .homeQuestion:nth-child(3),.home_questions_second .homeQuestion:nth-child(4){
         display: none;
     }
 
