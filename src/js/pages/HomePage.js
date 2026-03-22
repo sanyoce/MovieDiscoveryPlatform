@@ -536,5 +536,17 @@ export async function homePage() {
         }
     })
 
+    const lastBannerHome = document.createElement('div')
+    lastBannerHome.classList.add('lastBannerHome')
+    lastBannerHome.innerHTML=`
+    <div class='wrapper_last_banner'>
+            <div class='last_banner_txt'>
+                <h1>Start your free trial today!</h1>
+                <p>This is a clear and concise call to action that encourages users to sign up for a free trial of StreamVibe.</p>
+            </div>
+            <button class='last_banner_btn'>Start a Free Trail</button>
+        </div>
+    `
+    main.append(lastBannerHome)
     return main;
 }

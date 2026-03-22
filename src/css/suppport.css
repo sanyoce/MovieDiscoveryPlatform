@@ -1,0 +1,264 @@
+
+
+.supportWrapper{
+    padding: 60px 162px 0px 169px;
+}
+
+.welcomeSupport{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcoming{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.welcoming h1{
+    color: white;
+    font-size: 48px;
+    margin: 0px;
+}
+
+.welcoming p{
+    color: #999999;
+    font-size: 18px;
+}
+
+.welcoming img{
+    width: 533px;
+}
+
+
+.contactWrapper{
+    max-width: 1200px;
+    border: 2px solid #262626;
+    padding: 50px 100px;
+    background-color: #0F0F0F;
+}
+
+.contactForm{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-sizing: border-box;
+}
+
+.contactRow{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.inputWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.inputWrapper label{
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    margin: 0px;
+
+}
+
+.inputWrapper input,
+.inputWrapper textarea{
+    background-color: #0D0D0D;
+    border: 1px solid #1E1E1E;
+    border-radius: 8px;
+    color: white;
+    padding: 18px 20px;
+    outline: none;
+    font-size: 16px;
+}
+
+.inputWrapper input::placeholder,
+.inputWrapper textarea::placeholder{
+    color: #7A7A7A;
+}
+
+.inputWrapper textarea{
+    min-height: 180px;
+    resize: none;
+}
+
+.phoneInputWrapper{
+    display: flex;
+    gap: 14px;
+}
+
+.flagSelect{
+    min-width: 90px;
+    height: 60px;
+    border: 1px solid #1E1E1E;
+    border-radius: 8px;
+    background-color: #0D0D0D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.flagSelect img{
+    width: 38px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.flagSelect span{
+    color: #fff;
+    font-size: 16px;
+}
+
+.phoneInputWrapper input{
+    flex: 1;
+}
+
+.fullWidth{
+    width: 100%;
+}
+
+.formBottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.checkboxWrapper{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #8B8B8B;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.checkboxWrapper input{
+    width: 20px;
+    height: 20px;
+    accent-color: red;
+}
+
+.sendBtn{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 18px 32px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sendBtn:hover{
+    opacity: 0.85;
+}
+
+.questionSupport{
+    padding-bottom: 100px;
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.wrapper_last_banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 80px;
+    background-color: #0F0F0F;
+    border: 1px solid #262626;
+    border-radius: 12px;
+    margin-bottom: 100px;
+}
+
+.last_banner_txt h1{
+    font-size: 48px;
+    color: white;
+}
+
+.last_banner_txt p{
+    font-size: 18;
+    color: #999999;
+}
+
+.last_banner_btn{
+    margin: 0px;
+    padding: 18px 24px;
+    background-color: red;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+}
+
+@media(max-width: 1440px){
+    .supportWrapper{
+        padding: 60px 80px;
+    }
+
+    .contactWrapper{
+        padding: 40px;
+    }
+
+    .welcoming h1{
+        font-size: 38px;
+    }
+
+    .welcoming img{
+        width: 449px;
+    }
+
+    .last_banner_txt h1 {
+        font-size: 28px;
+    }
+}
+
+@media(max-width: 500px){
+    .supportWrapper{
+        padding: 40px 15px 0px 18px;
+    }
+    .contactWrapper{
+        padding: 24px;
+    }
+
+    .welcomeSupport{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .contactRow{
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .formBottom{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sendBtn{
+        width: 100%;
+    }
+
+    .wrapper_last_banner{
+        flex-direction: column;
+    }
+
+    .last_banner_txt{
+        text-align: center;
+    }
+
+    .last_banner_btn{
+        margin-top: 20px;
+    }
+}

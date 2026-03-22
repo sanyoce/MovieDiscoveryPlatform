@@ -442,6 +442,10 @@
     display: none  !important;
 }
 
+.lastBannerHome{
+    padding: 0px 160px;
+}
+
 @media(max-width:1440px){
     .homeCarouselSection{
         padding: 100px 80px 50px 80px;
@@ -471,6 +475,10 @@
         padding: 150px 80px;
     }
 
+    .lastBannerHome{
+    padding: 0px 80px;
+    }
+
     .subscribePlanCardBtns div:nth-child(1){
         text-wrap: nowrap;
         padding: 0 20px;
@@ -494,6 +502,8 @@
         font-size: 30px;
     }
 }
+
+
 
 @media(max-width: 500px){
     .homePage{
@@ -675,5 +685,9 @@
 
     .subscribePlanCardBtns div:nth-child(2){
         padding: 0px 10px;
+    }
+
+    .lastBannerHome{
+    padding: 0px 18px;
     }
 }
