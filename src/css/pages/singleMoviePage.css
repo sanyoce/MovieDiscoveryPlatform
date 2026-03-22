@@ -270,6 +270,7 @@
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 12px;
+    width: 88px;
 }
 
 .reviews_carousel_space{
@@ -332,6 +333,31 @@
     color: #999999;
 }
 
+.raitingAutor{
+    display: flex;
+}
+
+.raitingAutor span{
+    color: white;
+}
+
+@media(max-width: 1440px){
+    .raitingAutor{
+    display: flex;
+    width: 20px;
+    }
+
+    .reviewWrapper{
+        padding: 20px;
+    }
+
+    .reviewer{
+        display: flex;
+        justify-content: flex-start;
+        gap: 50px;
+    }
+}
+
 @media(max-width: 500px){
     .singlePageFilm{
         padding: 0px 16px;
@@ -342,7 +368,11 @@
     }
 
     .single_movie_banner_text h1{
-        text-wrap: nowrap;
+        width: 400px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
     }
 
     .single_movie_btns{

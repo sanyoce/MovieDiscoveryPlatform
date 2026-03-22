@@ -1,7 +1,8 @@
 export function supportPage() {
     const page = document.createElement('div')
+    page.classList.add('supportWrapper')
     page.innerHTML = `
-        <h1>SupportPage</h1>
+        <div></div>
     `;
     return page
 }

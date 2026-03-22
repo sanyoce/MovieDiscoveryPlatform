@@ -678,7 +678,7 @@ export async function MoviesShowsPage() {
       .slice(index, step + index)
       .map((elem) => {
         return `
-      <div class ='trendingWrapper'>
+      <div class ='trendingWrapper' data-id='${elem.id}'>
         <img  class='moviePostersTrending' src='${IMG_BASE + elem.poster_path}'/>
         <div class='trendingCardInfo'>
           <div class='trendingTime'>
@@ -716,6 +716,14 @@ export async function MoviesShowsPage() {
     render_trending_show(index_for_rated_show, step_for_rated_show);
   });
 
+  ThirdShowC.addEventListener(('click'), (e)=>{
+    const card = e.target.closest('.trendingWrapper')
+    if(!card)return
+    const id = card.dataset.id
+    location.hash = `#/singleShow/${id}`
+  })
+ 
+
   const fourthShowC = showCarouselSection.querySelector(".spaceForReleases");
   const upcoming_show_data = await getUpcomingShow();
   let index_for_upcoming_show = 0;
@@ -734,7 +742,7 @@ export async function MoviesShowsPage() {
       .slice(index, step + index)
       .map((elem) => {
         return `
-       <div class='releasessWrapper'>
+       <div class='releasessWrapper' data-id='${elem.id}'>
         <img src='${IMG_BASE + elem.poster_path}'/>
         <p>Released at ${formatReleaseDate(elem.first_air_date)}</p>
       </div>
@@ -761,6 +769,12 @@ export async function MoviesShowsPage() {
     );
     render_releases_shows(index_for_upcoming_show, step_for_upcoming_show);
   });
+  fourthShowC.addEventListener(('click'), (e)=>{
+    const card = e.target.closest('.releasessWrapper')
+    if(!card)return
+    const id = card.dataset.id
+    location.hash = `#/singleShow/${id}`
+  })
 
   const fifthShowC = showCarouselSection.querySelector(".spaceForRated");
   let index_for_must_show = 0;
@@ -784,7 +798,7 @@ export async function MoviesShowsPage() {
       .slice(index, step + index)
       .map((elem) => {
         return `
-    <div class='ratedWrapper'>
+    <div class='ratedWrapper' data-id='${elem.id}'>
       <div class='ratedImg'><img src='${IMG_BASE + elem.poster_path}'/></div>
           <div class='ratedInfo'>
             <div class='trendingTime'>
@@ -818,17 +832,18 @@ export async function MoviesShowsPage() {
     );
     render_must_shows(index_for_must_show, step_for_must_show);
   });
+  fifthShowC.addEventListener(('click'), (e)=>{
+    const card = e.target.closest('.ratedWrapper')
+    if(!card)return
+    const id = card.dataset.id
+    location.hash = `#/singleShow/${id}`
+  })
 
 const movieBtn = movie_show_change.querySelector('.movieBtn')
 const showBtn = movie_show_change.querySelector('.showBtn')
 const movieShowBtn = movie_show_change.querySelector('.movieShowBtnWrapper')
 const movieBlock = carouselSection.querySelector('.carouselSectionWrapper')
 const showBlock = showCarouselSection.querySelector('.carouselSectionWrapperShow')
-
-console.log(movieBtn)
-console.log(showBtn)
-console.log(movieBlock)
-console.log(showBlock)
 
 movieShowBtn.addEventListener(('click'),(e) =>{
   if(e.target.closest('.movieBtn')){

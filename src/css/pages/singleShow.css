@@ -1,0 +1,296 @@
+.show_description{
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    grid-template-areas: 
+    "epos  second"
+    "first second"
+    "third second"
+    "fourth second"
+    ;
+    gap: 20px;
+    padding-top: 100px;
+}
+
+.showEpisodes{
+    grid-area: epos;
+    padding: 50px;
+    background-color: #1A1A1A;
+    border-radius: 12px;
+}
+
+.episodesHeader{
+    color: white;
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: 20px;
+}
+
+.spaceForSeasons{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.seasons{
+    display: grid;
+    grid-template-areas: 
+    "one two"
+    "three three"
+    ;
+    padding: 24px 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.seasonsOpen{
+    border: none;
+    border-radius: 0px;
+    padding-top: 40px;
+}
+
+.seasonsInfo{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    grid-area: one;
+}
+
+.seasonsInfo p:nth-child(1){
+    margin: 0px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.seasonsInfo p:nth-child(2){
+    margin: 0px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #999999;
+}
+
+.showSeriesBtn{
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    background-color: #141414;
+    border: 1px solid #262626;
+    border-radius: 50px;
+    transform: rotate(270deg);
+    transition: transform 0.4s ;
+    grid-area: two;
+}
+
+.seriesBtnActive{
+    transform: rotate(90deg);
+}
+
+.seriesSpace{
+    grid-area: three;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.openshow{
+    transform: rotate(-270deg);
+    transition: transform 0.4s ;
+}
+
+.seasonsWrapper{
+    background-color: #0F0F0F;
+    border: 1px solid #262626;
+    border-radius: 12px;
+}
+
+.epWrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 50px;
+    background-color: #0F0F0F;
+}
+
+.epWrapper::after{
+    content: "";
+    position: absolute;
+    left: 50px;
+    right: 50px;
+    top: 0;
+    height: 2px;
+    background: #2a2a2a;
+}
+
+.epNumber p:first-child{
+    font-size: 30px;
+    color: #999999;
+}
+
+
+
+.epPoster{
+    width: 172px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 2px solid #262626;
+    object-fit: cover;
+    position: relative;
+}
+
+.epPoster img:nth-child(1){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.epName{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin: 0px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.epName div p{
+    margin: 0px;
+    font-weight: 200;
+    font-size: 18px;
+    text-wrap: nowrap;
+}
+
+.epName div{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 8px;
+    padding: 8px 10px;
+    background-color: #141414;
+    border: 1px solid #262626;
+}
+
+.epInfo p{
+    font-size: 18px;
+    color: #999999;
+}
+
+@media(max-width:1440px){
+    .singlePageFilm{
+        padding: 80px 77px;
+    }
+
+    .episodesHeader{
+        font-size: 20px;
+    }
+
+    .showEpisodes{
+        padding: 30px;
+    }
+
+    .seasons{
+        padding: 27px 40px;
+    }
+
+    .seasonsInfo p:nth-child(1){
+        font-size: 20px;
+    }
+
+    .seasonsInfo p:nth-child(2){
+        font-size: 16px;
+    }
+
+    .epNumber{
+        font-size: 24px;
+    }
+
+    .epInfo p {
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 500px){
+    .show_description{
+        grid-template-areas: 
+        "epos"
+        "first"
+        "second"
+        "third"
+        "fourth"
+        ;
+    }
+
+    .singlePageFilm{
+        padding: 40px 16px;
+    }
+
+    .epInfo{
+        display: none;
+    }
+
+    .epWrapper{
+        display: grid;
+        grid-template-areas: 
+        "one  one two"
+        "three three three"
+        ;
+        padding: 16px 20px;
+        gap: 0px;
+    }
+
+    .epWrapper::after{
+    content: "";
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 0;
+    height: 2px;
+    background: #2a2a2a;
+    }
+
+    .epPoster{
+            grid-area: one;
+        }
+
+    .epNumber{
+        grid-area: two;
+        justify-self: flex-end;
+    }
+
+    .epName{
+        grid-area: three;
+    }
+
+    .epName{
+        display: grid;
+        grid-template-areas: 
+        "two"
+        "one";
+        padding-top: 30px;
+    }
+
+    .epName p{
+        grid-area: one;
+
+    }
+
+    .epName div{
+        grid-area: two;
+        justify-self: flex-start;
+    }
+
+    .epPoster{
+    width: 200px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 2px solid #262626;
+    object-fit: cover;
+    position: relative;
+    }
+
+    .seasons{
+        padding: 20px;
+    }
+}

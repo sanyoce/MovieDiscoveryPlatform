@@ -101,3 +101,21 @@ export async function getReviews(id) {
     language: 'en-US'
   })
 }
+
+export async function getShowCredits(id) {
+  return request(`/tv/${id}/credits`, {
+    language: 'en-US'
+  })
+}
+
+export async function getShowReviews(id) {
+  return request(`/tv/${id}/reviews`, {
+    language: 'en-US'
+  })
+}
+
+export async function getSeasonDetails(tvId, seasonNumber) {
+    return request(`/tv/${tvId}/season/${seasonNumber}`, {
+        language: 'en-US'
+    });
+}

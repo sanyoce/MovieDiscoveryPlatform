@@ -42,13 +42,9 @@ export async function singleFilmP(id){
     }
 
     const movie = await getMovieDetails(id)
-    console.log(movie)
     const movieCast = await getCredits(id)
-    console.log(movieCast)
     const movieReviews = await getReviews(id)
-    console.log(movieReviews)
     const director = movieCast.crew.filter(pers => pers.job === "Director")
-    console.log(director)
     const musicDirector = movieCast.crew.filter(pers => pers.job === "Original Music Composer")
 
     const spookenLang = movie.spoken_languages.map(lang =>{
@@ -234,7 +230,10 @@ export async function singleFilmP(id){
                 <div class='reviewWrapper'>
                     <div class='reviewer'>
                         <p>${elem.author}</p>
-                        <div>RAITING</div>
+                        <div class='raitingAutor'>
+                        ${formatStars(elem.author_details.rating)}
+                        <span>${Math.round(elem.author_details.rating)}K</span>
+                        </div>
                     </div>
                     <div class='reviewContent'>
                         <p>${elem.content}</p>

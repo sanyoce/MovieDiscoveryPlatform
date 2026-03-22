@@ -2,8 +2,9 @@ import {homePage} from './pages/HomePage.js';
 import {searchPage} from './pages/SearchPage.js';
 import {MoviesShowsPage} from './pages/Movies&Shows.js';
 import {supportPage} from './pages/Support.js';
-import {descriptionPage} from './pages/DescriptionPage.js'
-import {singleFilmP} from './pages/movieSinglePage.js'
+import {descriptionPage} from './pages/DescriptionPage.js';
+import {singleFilmP} from './pages/movieSinglePage.js';
+import {singleShowP} from './pages/showsSinglePage.js'
 
 const routes = {
     '#/home': homePage,
@@ -26,6 +27,12 @@ async function renderRout(){
     }
 
     const renderPage = routes[hash];
+
+    if (hash.startsWith('#/singleShow/')) {
+        const id = hash.split('/')[2];
+        main.append(await singleShowP(id));
+        return;
+    }
 
     if (!renderPage) {
         console.error('Route not found:', hash);
